@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.SearchWindow">
+   <children>
+      <TextField fx:id="minVal" layoutX="43.0" layoutY="53.0" promptText="double" />
+      <TextField fx:id="maxVal" layoutX="219.0" layoutY="53.0" promptText="double" />
+      <DatePicker fx:id="dateVal" editable="false" layoutX="42.0" layoutY="120.0" />
+      <ChoiceBox fx:id="enumVal" layoutX="43.0" layoutY="188.0" prefWidth="150.0" />
+      <Text layoutX="43.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
+      <Text layoutX="219.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max" />
+      <Text layoutX="203.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="20.47265625" />
+      <Text layoutX="44.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+      <Text layoutX="42.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+      <Button fx:id="searchButton" layoutX="48.0" layoutY="267.0" mnemonicParsing="false" onAction="#searchAction" text="Search" />
+      <TextArea layoutX="250.0" layoutY="120.0" prefHeight="250.0" prefWidth="310.0" />
+      <Text layoutX="250.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search results" />
+      <Button fx:id="backButton" layoutX="151.0" layoutY="267.0" mnemonicParsing="false" onAction="#openMain" text="Back" />
+   </children>
+</AnchorPane>

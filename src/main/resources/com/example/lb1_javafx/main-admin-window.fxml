@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.MainAdminWindow">
+   <children>
+      <Button fx:id="openUserButton" layoutX="154.0" layoutY="122.0" mnemonicParsing="false" onAction="#openUser" prefHeight="25.0" prefWidth="82.0" text="Users" />
+      <Button fx:id="openTripButton" layoutX="366.0" layoutY="122.0" mnemonicParsing="false" onAction="#openTrip" prefHeight="25.0" prefWidth="82.0" text="Trips" />
+      <Button fx:id="openCommentButton" layoutX="154.0" layoutY="201.0" mnemonicParsing="false" onAction="#openComment" prefHeight="25.0" prefWidth="82.0" text="Comments" />
+      <Button fx:id="openTruckButton" layoutX="154.0" layoutY="159.0" mnemonicParsing="false" onAction="#openTruck" prefHeight="25.0" prefWidth="82.0" text="Truck" />
+      <Button fx:id="openDestinationButton" layoutX="366.0" layoutY="159.0" mnemonicParsing="false" onAction="#openDestination" text="Destinations" />
+      <Button fx:id="openShipmentsButton" layoutX="366.0" layoutY="200.0" mnemonicParsing="false" onAction="#openShipments" prefHeight="25.0" prefWidth="82.0" text="Shipments" />
+      <Button fx:id="openStopPointsButton" layoutX="366.0" layoutY="236.0" mnemonicParsing="false" onAction="#openStopPoints" prefHeight="25.0" prefWidth="82.0" text="Stop Points" />
+      <Button fx:id="openForumButton" layoutX="154.0" layoutY="235.0" mnemonicParsing="false" onAction="#openForum" prefHeight="25.0" prefWidth="82.0" text="Forums" />
+      <Button fx:id="logOutButton" layoutX="482.0" layoutY="341.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="82.0" text="Log Out" />
+   </children>
+</AnchorPane>
