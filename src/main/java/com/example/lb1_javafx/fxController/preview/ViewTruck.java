@@ -60,4 +60,9 @@ public class ViewTruck {
     }
 
 
+    public void submitEdit(ActionEvent actionEvent) {
+    }
+
+    public void deleteEntry(ActionEvent actionEvent) {
+    }
 }

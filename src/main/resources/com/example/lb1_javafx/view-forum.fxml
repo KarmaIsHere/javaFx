@@ -8,11 +8,32 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="598.0" prefWidth="1097.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.preview.ViewForum">
-    <children>
-        <Button fx:id="createButton" layoutX="1030.0" layoutY="359.0" mnemonicParsing="false" onAction="#createEntry" prefWidth="51.0" text="Create" />
-        <Button fx:id="searchButton" layoutX="935.0" layoutY="359.0" mnemonicParsing="false" onAction="#searchTable" text="Search" />
-        <TableView fx:id="tableUser" layoutX="14.0" layoutY="14.0" prefHeight="506.0" prefWidth="900.0">
+<AnchorPane prefHeight="716.0" prefWidth="1097.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.preview.ViewForum">
+    <children> <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
+        <TextField fx:id="firstNameField" layoutX="932.0" layoutY="35.0" />
+        <Text layoutX="931.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
+        <TextField fx:id="lastNameField" layoutX="932.0" layoutY="81.0" />
+        <Text layoutX="932.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
+        <TextField fx:id="loginField" layoutX="932.0" layoutY="135.0" />
+        <Text layoutX="932.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+        <TextField fx:id="emailField" layoutX="932.0" layoutY="195.0" />
+        <Text layoutX="932.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+        <TextField fx:id="passwordField" layoutX="932.0" layoutY="255.0" />
+        <Text layoutX="932.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
+        <TextField fx:id="phoneNumberField" layoutX="932.0" layoutY="315.0" />
+        <Text layoutX="932.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary" />
+        <TextField fx:id="salaryField" layoutX="932.0" layoutY="366.0" />
+        <Button fx:id="createButton" layoutX="1031.0" layoutY="530.0" mnemonicParsing="false" onAction="#createEntry" prefWidth="51.0" text="Create" />
+        <Button fx:id="searchButton" layoutX="933.0" layoutY="530.0" mnemonicParsing="false" onAction="#searchTable" text="Search" />
+        <Line endX="60.0" layoutX="1033.0" layoutY="634.0" startX="-116.0" />
+        <Text layoutX="991.0" layoutY="585.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Existing Login" wrappingWidth="92.0" />
+        <Button fx:id="editButton" layoutX="932.0" layoutY="589.0" mnemonicParsing="false" onAction="#submitEdit" prefHeight="25.0" prefWidth="51.0" text="Edit" />
+        <TextField fx:id="editLoginField" layoutX="991.0" layoutY="589.0" prefHeight="25.0" prefWidth="92.0" />
+        <Text layoutX="999.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="16.259765625" />
+        <TextField fx:id="idField" layoutX="994.0" layoutY="661.0" prefHeight="25.0" prefWidth="92.0" />
+        <Button fx:id="deleteButton" layoutX="935.0" layoutY="661.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete" />
+        <Button fx:id="backButton" layoutX="14.0" layoutY="665.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+        <TableView fx:id="tableUser" layoutX="15.0" layoutY="9.0" prefHeight="638.0" prefWidth="900.0">
             <columns>
                 <TableColumn fx:id="id" prefWidth="39.0" text="id" />
                 <TableColumn fx:id="title" prefWidth="87.0" text="title" />
@@ -22,15 +43,6 @@
                 <TableColumn fx:id="date" prefWidth="132.0" text="date" />
             </columns>
         </TableView>
-      <Button fx:id="refresh" layoutX="858.0" layoutY="551.0" mnemonicParsing="false" onAction="#fillTable" text="Refresh" />
-      <Button fx:id="backButton" layoutX="14.0" layoutY="551.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-      <Button fx:id="editButton" layoutX="984.0" layoutY="425.0" mnemonicParsing="false" onAction="#openEdit" text="Edit" />
-      <Text layoutX="932.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
-      <Text layoutX="932.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
-      <Text layoutX="932.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-      <Text layoutX="932.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account type" />
-      <Text layoutX="932.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
-      <Line endX="60.0" layoutX="1030.0" layoutY="404.0" startX="-116.0" />
     </children>
 
 </AnchorPane>

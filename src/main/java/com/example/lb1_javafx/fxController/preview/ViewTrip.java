@@ -55,4 +55,10 @@ public class ViewTrip {
     public void goBack(ActionEvent actionEvent) throws IOException {
         switchScene("main-admin-window.fxml", createButton);
     }
+
+    public void submitEdit(ActionEvent actionEvent) {
+    }
+
+    public void deleteEntry(ActionEvent actionEvent) {
+    }
 }

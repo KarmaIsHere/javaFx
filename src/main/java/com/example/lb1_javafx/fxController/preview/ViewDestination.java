@@ -48,4 +48,10 @@ public class ViewDestination {
 
     public void openEdit(ActionEvent actionEvent) {
     }
+
+    public void submitEdit(ActionEvent actionEvent) {
+    }
+
+    public void deleteEntry(ActionEvent actionEvent) {
+    }
 }

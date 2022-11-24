@@ -59,4 +59,10 @@ public class ViewForum {
 
     public void openEdit(ActionEvent actionEvent) {
     }
+
+    public void submitEdit(ActionEvent actionEvent) {
+    }
+
+    public void deleteEntry(ActionEvent actionEvent) {
+    }
 }
