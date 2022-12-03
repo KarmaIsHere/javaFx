@@ -1,0 +1,72 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+<!--<?import javafx.scene.control.Button?>-->
+<!--<?import javafx.scene.control.Tab?>-->
+<!--<?import javafx.scene.control.TabPane?>-->
+<!--<?import javafx.scene.layout.AnchorPane?>-->
+
+<!--<AnchorPane prefHeight="556.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.MainWindow">-->
+<!--   <children>-->
+<!--      <Button fx:id="openUserButton" layoutX="154.0" layoutY="122.0" mnemonicParsing="false" onAction="#openUser" prefHeight="25.0" prefWidth="82.0" text="Users" />-->
+<!--      <Button fx:id="openTripButton" layoutX="366.0" layoutY="122.0" mnemonicParsing="false" onAction="#openTrip" prefHeight="25.0" prefWidth="82.0" text="Trips" />-->
+<!--      <Button fx:id="openCommentButton" layoutX="154.0" layoutY="201.0" mnemonicParsing="false" onAction="#openComment" prefHeight="25.0" prefWidth="82.0" text="Comments" />-->
+<!--      <Button fx:id="openTruckButton" layoutX="154.0" layoutY="159.0" mnemonicParsing="false" onAction="#openTruck" prefHeight="25.0" prefWidth="82.0" text="Truck" />-->
+<!--      <Button fx:id="openDestinationButton" layoutX="366.0" layoutY="159.0" mnemonicParsing="false" onAction="#openDestination" text="Destinations" />-->
+<!--      <Button fx:id="openShipmentsButton" layoutX="366.0" layoutY="200.0" mnemonicParsing="false" onAction="#openShipments" prefHeight="25.0" prefWidth="82.0" text="Shipments" />-->
+<!--      <Button fx:id="openStopPointsButton" layoutX="366.0" layoutY="236.0" mnemonicParsing="false" onAction="#openStopPoints" prefHeight="25.0" prefWidth="82.0" text="Stop Points" />-->
+<!--      <Button fx:id="openForumButton" layoutX="154.0" layoutY="235.0" mnemonicParsing="false" onAction="#openForum" prefHeight="25.0" prefWidth="82.0" text="Forums" />-->
+<!--      <Button fx:id="logOutButton" layoutX="482.0" layoutY="341.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="82.0" text="Log Out" />-->
+<!--      <TabPane prefHeight="556.0" prefWidth="782.0" tabClosingPolicy="UNAVAILABLE">-->
+<!--        <tabs>-->
+<!--          <Tab fx:id="user" text="Users">-->
+<!--             <fx:include fx:id="ViewUser" source="view-user.fxml"/>-->
+<!--            <content>-->
+<!--              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="748.0" />-->
+<!--            </content>-->
+<!--          </Tab>-->
+<!--          <Tab fx:id="truck" text="Truck">-->
+<!--             <fx:include fx:id="ViewTruck" source="view-truck.fxml"/>-->
+<!--            <content>-->
+<!--              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--            </content>-->
+<!--          </Tab>-->
+<!--            <Tab fx:id="comment" text="Comments">-->
+<!--               <fx:include fx:id="ViewComment" source="view-comment.fxml"/>-->
+<!--              <content>-->
+<!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--              </content>-->
+<!--            </Tab>-->
+<!--            <Tab fx:id="forum" text="Forums">-->
+<!--               <fx:include fx:id="ViewForum" source="view-forum.fxml"/>-->
+<!--              <content>-->
+<!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--              </content>-->
+<!--            </Tab>-->
+<!--            <Tab fx:id="trip" text="Trips">-->
+<!--               <fx:include fx:id="ViewTrip" source="view-trip.fxml"/>-->
+<!--              <content>-->
+<!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--              </content>-->
+<!--            </Tab>-->
+<!--            <Tab fx:id="destination" text="Destinations">-->
+<!--               <fx:include fx:id="ViewDestination" source="view-destination.fxml"/>-->
+<!--              <content>-->
+<!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--              </content>-->
+<!--            </Tab>-->
+<!--            <Tab fx:id="shipment" text="Shipments">-->
+<!--               <fx:include fx:id="ViewShipment" source="view-shipment.fxml"/>-->
+<!--              <content>-->
+<!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--              </content>-->
+<!--            </Tab>-->
+<!--            <Tab fx:id="stopPoint" text="Stop Points">-->
+<!--               <fx:include fx:id="ViewStopPoint" source="view-stop-point.fxml"/>-->
+<!--              <content>-->
+<!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--              </content>-->
+<!--            </Tab>-->
+<!--        </tabs>-->
+<!--      </TabPane>-->
+<!--   </children>-->
+<!--</AnchorPane>-->

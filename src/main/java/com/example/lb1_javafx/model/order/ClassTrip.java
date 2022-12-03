@@ -12,7 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,17 +30,20 @@ public class ClassTrip {
     @Column(name = "TRIP_ID", nullable = false)
     private Long id;
 
-    @Column(name = "TRIP_START", nullable = false)
-    private Timestamp start;
+    @Column(name = "TRIP_START")
+    private LocalDate start;
 
-    @Column(name = "TRIP_END", nullable = false)
-    private Timestamp end;
+    @Column(name = "TRIP_END")
+    private LocalDate end;
+
+    @Column(name = "DEADLINE", nullable = false)
+    private LocalDate deadline;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "USER_ID")
     private ClassUser driver;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TRUCK_ID", nullable = false)
+    @JoinColumn(name = "TRUCK_ID")
     private ClassTruck truck;
 
     @OneToMany(mappedBy = "trip")
@@ -47,8 +51,8 @@ public class ClassTrip {
     private List<ClassStopPoint> stopPoints;
     public ClassTrip(JSONObject jsonObject) {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
-        this.start = (Timestamp) jsonObject.get("start");
-        this.end = (Timestamp) jsonObject.get("end");
+        this.start = (LocalDate) jsonObject.get("start");
+        this.end = (LocalDate) jsonObject.get("end");
         this.driver = (ClassUser) jsonObject.get("driver");
         this.truck = (ClassTruck) jsonObject.get("truck");
     }

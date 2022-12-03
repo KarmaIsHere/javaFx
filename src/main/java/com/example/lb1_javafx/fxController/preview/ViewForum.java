@@ -6,18 +6,21 @@ import com.example.lb1_javafx.model.order.ClassTrip;
 import com.example.lb1_javafx.model.user.ClassUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.net.URL;
+
 import java.time.Instant;
+import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 
-public class ViewForum {
+public class ViewForum  implements Initializable {
     public Button createButton;
     public Button searchButton;
     public Button refresh;
@@ -36,8 +39,11 @@ public class ViewForum {
     @FXML
     public TableColumn <ClassForum, Instant> date;
     @FXML
-    public TableView<ClassForum> tableUser;
-
+    public TableView<ClassForum> tableForum;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillTable();
+    }
     public void createEntry(ActionEvent actionEvent) {
     }
 
@@ -51,10 +57,12 @@ public class ViewForum {
         category.setCellValueFactory(new PropertyValueFactory<ClassForum, String>("category"));
         creator.setCellValueFactory(new PropertyValueFactory<ClassForum, Integer>("creator"));
         date.setCellValueFactory(new PropertyValueFactory<ClassForum, Instant>("date"));
+        tableForum.getItems().setAll(ClassForum.getArray());
+
     }
 
     public void goBack(ActionEvent actionEvent) throws IOException {
-        switchScene("main-admin-window.fxml", createButton);
+        switchScene("main-window.fxml", createButton);
     }
 
     public void openEdit(ActionEvent actionEvent) {

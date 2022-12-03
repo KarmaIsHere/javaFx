@@ -34,7 +34,7 @@ public class ClassUser {
     @Column(name = "LAST_NAME", nullable = false, length = 20)
     private String last_name;
 
-    @Column(name = "STATUS", nullable = false)
+    @Column(name = "STATUS")
     private UserStatus status;
 
     @Column(name = "EMAIL", nullable = false, length = 30, unique = true)

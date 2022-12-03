@@ -208,6 +208,6 @@ public class ViewUser implements Initializable {
     }
 
     public void goBack(ActionEvent actionEvent) throws IOException {
-        switchScene("main-admin-window.fxml", backButton);
+        switchScene("main-window.fxml", backButton);
     }
 }

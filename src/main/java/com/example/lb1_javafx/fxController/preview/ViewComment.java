@@ -7,18 +7,21 @@ import com.example.lb1_javafx.model.order.ClassTrip;
 import com.example.lb1_javafx.model.user.ClassUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.net.URL;
+
 import java.time.Instant;
+import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 
-public class ViewComment {
+public class ViewComment implements Initializable {
     public Button createButton;
     public Button searchButton;
     public Button editButton;
@@ -35,14 +38,19 @@ public class ViewComment {
     @FXML
     public TableColumn <ClassComment, ClassUser> user;
     @FXML
-    public TableView<ClassComment> tableUser;
-
+    public TableView<ClassComment> tableComment;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillTable();
+    }
     public void fillTable(){
         id.setCellValueFactory(new PropertyValueFactory<ClassComment, Integer>("id"));
         text.setCellValueFactory(new PropertyValueFactory<ClassComment, String>("text"));
         date.setCellValueFactory(new PropertyValueFactory<ClassComment, Instant>("date"));
         forum.setCellValueFactory(new PropertyValueFactory<ClassComment, ClassForum>("forum"));
         user.setCellValueFactory(new PropertyValueFactory<ClassComment, ClassUser>("user"));
+        tableComment.getItems().setAll(ClassComment.getArray());
+
     }
 
     public void createEntry(ActionEvent actionEvent) {
@@ -55,7 +63,7 @@ public class ViewComment {
     }
 
     public void goBack(ActionEvent actionEvent) throws IOException {
-        switchScene("main-admin-window.fxml", createButton);
+        switchScene("main-window.fxml", createButton);
     }
 
     public void submitEdit(ActionEvent actionEvent) {

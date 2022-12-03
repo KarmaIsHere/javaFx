@@ -26,7 +26,7 @@ public class LoginWindow {
         String getLogin = CallEndpoints.Get("http://localhost:8080/api/user/users?login=" + loginField.getText() + "&password=" + pswField.getText());
 
         if (getLogin.length() != 2) {
-            switchScene("main-admin-window.fxml", loginButton);
+            switchScene("main-window.fxml", loginButton);
         } else {
             FxUtils fxUtils = new FxUtils();
             fxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Error", "Boohoo",

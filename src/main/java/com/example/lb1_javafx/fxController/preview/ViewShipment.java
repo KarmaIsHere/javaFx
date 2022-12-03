@@ -6,17 +6,20 @@ import com.example.lb1_javafx.model.order.ClassStopPoint;
 import com.example.lb1_javafx.model.order.ClassTrip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.net.URL;
+
+import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 
-public class ViewShipment {
+public class ViewShipment implements Initializable {
     public Button createButton;
     public Button searchButton;
     public Button refresh;
@@ -31,8 +34,11 @@ public class ViewShipment {
     @FXML
     public TableColumn <ClassShipment, ClassDestination> destination;
     @FXML
-    public TableView <ClassShipment> tableUser;
-
+    public TableView <ClassShipment> tableShipment;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillTable();
+    }
     public void createEntry(ActionEvent actionEvent) {
     }
 
@@ -44,9 +50,11 @@ public class ViewShipment {
         description.setCellValueFactory(new PropertyValueFactory<ClassShipment, String>("description"));
         weight.setCellValueFactory(new PropertyValueFactory<ClassShipment, String>("weight"));
         destination.setCellValueFactory(new PropertyValueFactory<ClassShipment, ClassDestination>("destination"));
+        tableShipment.getItems().setAll(ClassShipment.getArray());
+
     }
     public void goBack(ActionEvent actionEvent) throws IOException {
-        switchScene("main-admin-window.fxml", createButton);
+        switchScene("main-window.fxml", createButton);
     }
 
     public void openEdit(ActionEvent actionEvent) {

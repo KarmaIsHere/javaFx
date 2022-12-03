@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class ClassShipment {
     private String weight;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DESTINATION_ID", nullable = false)
+    @JoinColumn(name = "DESTINATION_ID")
     private ClassDestination destination;
 
     @OneToMany(mappedBy = "shipment")

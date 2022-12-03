@@ -5,6 +5,7 @@ import com.example.lb1_javafx.model.TruckStatus;
 import com.example.lb1_javafx.model.user.ClassUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,11 +17,11 @@ import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 
-public class ViewTruck {
+public class ViewTruck implements Initializable {
     public Button createButton;
     public Button searchButton;
     @FXML
-    public TableView <ClassTruck> tableUser;
+    public TableView <ClassTruck> tableTruck;
     @FXML
     public TableColumn<ClassTruck, Integer > id;
     @FXML
@@ -37,6 +38,11 @@ public class ViewTruck {
     public Button backButton;
     public Button editButton;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillTable();
+    }
+
     public void fillTable(){
         id.setCellValueFactory(new PropertyValueFactory<ClassTruck, Integer>("id"));
         brand.setCellValueFactory(new PropertyValueFactory<ClassTruck, String>("brand"));
@@ -44,6 +50,7 @@ public class ViewTruck {
         height.setCellValueFactory(new PropertyValueFactory<ClassTruck, String>("height"));
         weight.setCellValueFactory(new PropertyValueFactory<ClassTruck, String>("weight"));
         status.setCellValueFactory(new PropertyValueFactory<ClassTruck, TruckStatus>("status"));
+        tableTruck.getItems().setAll(ClassTruck.getArray());
     }
 
     public void createEntry(ActionEvent actionEvent) {
@@ -53,7 +60,7 @@ public class ViewTruck {
     }
 
     public void goBack(ActionEvent actionEvent) throws IOException {
-        switchScene("main-admin-window.fxml", createButton);
+        switchScene("main-window.fxml", createButton);
     }
 
     public void openEdit(ActionEvent actionEvent) {

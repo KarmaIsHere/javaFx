@@ -46,8 +46,6 @@ public class ClassComment {
         this.date = (Instant) jsonObject.get("date");
         this.forum = (ClassForum) jsonObject.get("forum");
         this.user = (ClassUser) jsonObject.get("user");
-
-
     }
 
     public static List<ClassComment> getArray() {

@@ -5,29 +5,44 @@ import com.example.lb1_javafx.model.order.ClassShipment;
 import com.example.lb1_javafx.model.order.ClassStopPoint;
 import com.example.lb1_javafx.model.order.ClassTrip;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.net.URL;
+
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 
-public class ViewStopPoint {
+public class ViewStopPoint implements Initializable {
     public Button editButton;
     public Button backButton;
     public Button refresh;
     public Button createButton;
     public Button searchButton;
+    @FXML
     public TableColumn <ClassStopPoint, Integer> id;
+    @FXML
     public TableColumn <ClassStopPoint, Integer> nr;
-    public TableColumn <ClassStopPoint, Timestamp> stopDate;
+    @FXML
+    public TableColumn <ClassStopPoint, LocalDate> stopDate;
+    @FXML
     public TableColumn <ClassStopPoint, ClassShipment> shipment;
+    @FXML
     public TableColumn <ClassStopPoint, ClassTrip> trip;
-    public TableView  <ClassStopPoint> tableUser;
+    @FXML
+    public TableView  <ClassStopPoint> tableStopPoint;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillTable();
+    }
     public void createEntry(ActionEvent actionEvent) {
     }
 
@@ -37,13 +52,15 @@ public class ViewStopPoint {
     public void fillTable(){
         id.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Integer>("id"));
         nr.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Integer>("nr"));
-        stopDate.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Timestamp>("stopDate"));
+        stopDate.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, LocalDate>("stopDate"));
         shipment.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, ClassShipment>("shipment"));
         trip.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, ClassTrip>("trip"));
+        tableStopPoint.getItems().setAll(ClassStopPoint.getArray());
+
     }
 
     public void goBack(ActionEvent actionEvent) throws IOException {
-        switchScene("main-admin-window.fxml", createButton);
+        switchScene("main-window.fxml", createButton);
     }
 
     public void openEdit(ActionEvent actionEvent) {

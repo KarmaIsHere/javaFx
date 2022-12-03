@@ -11,7 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,8 +32,8 @@ public class ClassStopPoint {
     @Column(name = "STOPPOINT_NR", nullable = false)
     private int nr;
 
-    @Column(name = "STOPPOINT_TIME", nullable = false)
-    private Timestamp stopDate;
+    @Column(name = "STOPPOINT_TIME")
+    private LocalDate stopDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHIPMENT_ID", nullable = false)
@@ -45,7 +46,7 @@ public class ClassStopPoint {
     public ClassStopPoint(JSONObject jsonObject) {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
         this.nr = (Integer) jsonObject.get("nr");
-        this.stopDate = (Timestamp) jsonObject.get("stopDate");
+        this.stopDate = (LocalDate) jsonObject.get("stopDate");
         this.shipment = (ClassShipment) jsonObject.get("shipment");
         this.trip = (ClassTrip) jsonObject.get("trip");
     }
