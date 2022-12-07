@@ -73,10 +73,11 @@ public class ClassUser {
         this.phone_number = (String) jsonObject.get("phoneNumber");
         this.salary = (String) jsonObject.get("salary");
     }
-
     public static List<ClassUser> getArray() {
-
-        String response = CallEndpoints.Get("http://localhost:8080/api/user/users");
+        return getArray(CallEndpoints.Get("http://localhost:8080/api/user/users"));
+    }
+    public static List<ClassUser> getArray(String body) {
+        String response = body;
         List<ClassUser> users = new ArrayList<ClassUser>();
         JSONArray responseArray = new JSONArray(response);
         if (responseArray != null) {
