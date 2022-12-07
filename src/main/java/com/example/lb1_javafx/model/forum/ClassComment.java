@@ -35,19 +35,20 @@ public class ClassComment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FORUM_ID", nullable = false)
     private ClassForum forum;
+    private Long forumId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
     private ClassUser user;
+    private Long userId;
 
     public ClassComment(JSONObject jsonObject) {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
         this.text = (String) jsonObject.get("text");
-        this.date = (Instant) jsonObject.get("date");
-        this.forum = (ClassForum) jsonObject.get("forum");
-        this.user = (ClassUser) jsonObject.get("user");
+        this.date = Instant.parse(jsonObject.get("date").toString());
+        getForum( Long.valueOf((Integer) jsonObject.get("forum")));
+        getUser( Long.valueOf((Integer) jsonObject.get("user")));
     }
-
     public static List<ClassComment> getArray() {
 
         String response = CallEndpoints.Get("http://localhost:8080/api/comment/comments");
@@ -59,5 +60,30 @@ public class ClassComment {
             }
         }
         return comments;
+    }
+
+    private void getUser(Long id)
+    {
+        this.userId = id;
+        String response = CallEndpoints.Get("http://localhost:8080/api/user/users?id=" + id);
+        List<ClassUser> user = new ArrayList<ClassUser>();
+        JSONArray responseArray = new JSONArray(response);
+        if (responseArray != null) {
+            for (int i = 0; i < responseArray.length(); i++) {
+                this.user = new ClassUser(responseArray.getJSONObject(i));
+            }
+        }
+    }
+    private void getForum(Long id)
+    {
+        this.forumId = id;
+        String response = CallEndpoints.Get("http://localhost:8080/api/forum/forums?id=" + id);
+        List<ClassForum> forum = new ArrayList<ClassForum>();
+        JSONArray responseArray = new JSONArray(response);
+        if (responseArray != null) {
+            for (int i = 0; i < responseArray.length(); i++) {
+                this.forum = new ClassForum(responseArray.getJSONObject(i));
+            }
+        }
     }
 }

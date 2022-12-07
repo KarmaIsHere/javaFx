@@ -35,7 +35,7 @@ public class ViewForum  implements Initializable {
     @FXML
     public TableColumn <ClassForum, String> category;
     @FXML
-    public TableColumn <ClassForum, Integer> creator;
+    public TableColumn <ClassForum, Long> userId;
     @FXML
     public TableColumn <ClassForum, Instant> date;
     @FXML
@@ -55,7 +55,7 @@ public class ViewForum  implements Initializable {
         title.setCellValueFactory(new PropertyValueFactory<ClassForum, String>("title"));
         description.setCellValueFactory(new PropertyValueFactory<ClassForum, String>("description"));
         category.setCellValueFactory(new PropertyValueFactory<ClassForum, String>("category"));
-        creator.setCellValueFactory(new PropertyValueFactory<ClassForum, Integer>("creator"));
+        userId.setCellValueFactory(new PropertyValueFactory<ClassForum, Long>("userId"));
         date.setCellValueFactory(new PropertyValueFactory<ClassForum, Instant>("date"));
         tableForum.getItems().setAll(ClassForum.getArray());
 

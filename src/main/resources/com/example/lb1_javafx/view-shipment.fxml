@@ -15,7 +15,7 @@
                 <TableColumn fx:id="id" prefWidth="39.0" text="id" />
                 <TableColumn fx:id="description" prefWidth="571.0" text="description" />
                 <TableColumn fx:id="weight" prefWidth="203.0" text="weight" />
-                <TableColumn fx:id="destination" prefWidth="86.0" text="destination" />
+                <TableColumn fx:id="destinationId" prefWidth="86.0" text="destination" />
             </columns>
         </TableView>
         <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />

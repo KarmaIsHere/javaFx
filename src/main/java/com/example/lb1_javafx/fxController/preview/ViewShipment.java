@@ -32,7 +32,7 @@ public class ViewShipment implements Initializable {
     @FXML
     public TableColumn <ClassShipment, String> weight;
     @FXML
-    public TableColumn <ClassShipment, ClassDestination> destination;
+    public TableColumn <ClassShipment, Long> destinationId;
     @FXML
     public TableView <ClassShipment> tableShipment;
     @Override
@@ -49,7 +49,7 @@ public class ViewShipment implements Initializable {
         id.setCellValueFactory(new PropertyValueFactory<ClassShipment, Integer>("id"));
         description.setCellValueFactory(new PropertyValueFactory<ClassShipment, String>("description"));
         weight.setCellValueFactory(new PropertyValueFactory<ClassShipment, String>("weight"));
-        destination.setCellValueFactory(new PropertyValueFactory<ClassShipment, ClassDestination>("destination"));
+        destinationId.setCellValueFactory(new PropertyValueFactory<ClassShipment, Long>("destinationId"));
         tableShipment.getItems().setAll(ClassShipment.getArray());
 
     }

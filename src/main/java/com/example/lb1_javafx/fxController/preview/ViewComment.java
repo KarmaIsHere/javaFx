@@ -34,9 +34,9 @@ public class ViewComment implements Initializable {
     @FXML
     public TableColumn <ClassComment, Instant> date;
     @FXML
-    public TableColumn <ClassComment, ClassForum> forum;
+    public TableColumn <ClassComment, Long> forumId;
     @FXML
-    public TableColumn <ClassComment, ClassUser> user;
+    public TableColumn <ClassComment, Long> userId;
     @FXML
     public TableView<ClassComment> tableComment;
     @Override
@@ -47,8 +47,8 @@ public class ViewComment implements Initializable {
         id.setCellValueFactory(new PropertyValueFactory<ClassComment, Integer>("id"));
         text.setCellValueFactory(new PropertyValueFactory<ClassComment, String>("text"));
         date.setCellValueFactory(new PropertyValueFactory<ClassComment, Instant>("date"));
-        forum.setCellValueFactory(new PropertyValueFactory<ClassComment, ClassForum>("forum"));
-        user.setCellValueFactory(new PropertyValueFactory<ClassComment, ClassUser>("user"));
+        forumId.setCellValueFactory(new PropertyValueFactory<ClassComment, Long>("forumId"));
+        userId.setCellValueFactory(new PropertyValueFactory<ClassComment, Long>("userId"));
         tableComment.getItems().setAll(ClassComment.getArray());
 
     }

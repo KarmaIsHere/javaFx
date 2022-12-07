@@ -18,4 +18,6 @@ module com.example.lb1_javafx {
     exports com.example.lb1_javafx.fxController.preview;
     opens com.example.lb1_javafx.fxController.preview to javafx.fxml;
     opens com.example.lb1_javafx.model.user to javafx.base;
+    opens com.example.lb1_javafx.model.order to javafx.base;
+    opens com.example.lb1_javafx.model.forum to javafx.base;
 }

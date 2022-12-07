@@ -34,6 +34,7 @@ public class ClassShipment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DESTINATION_ID")
     private ClassDestination destination;
+    private Long destinationId;
 
     @OneToMany(mappedBy = "shipment")
     private List<ClassStopPoint> stopPoints;
@@ -42,7 +43,7 @@ public class ClassShipment {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
         this.description = (String) jsonObject.get("description");
         this.weight = (String) jsonObject.get("weight");
-        this.destination = (ClassDestination) jsonObject.get("destination");
+        getDestination(Long.valueOf((Integer) jsonObject.get("destinationId")));
     }
 
     public static List<ClassShipment> getArray() {
@@ -56,5 +57,18 @@ public class ClassShipment {
             }
         }
         return shipments;
+    }
+
+    private void getDestination(Long id)
+    {
+        this.destinationId = id;
+        String response = CallEndpoints.Get("http://localhost:8080/api/destination/destinations?id=" + id);
+        List<ClassDestination> destination = new ArrayList<ClassDestination>();
+        JSONArray responseArray = new JSONArray(response);
+        if (responseArray != null) {
+            for (int i = 0; i < responseArray.length(); i++) {
+                this.destination = new ClassDestination(responseArray.getJSONObject(i));
+            }
+        }
     }
 }

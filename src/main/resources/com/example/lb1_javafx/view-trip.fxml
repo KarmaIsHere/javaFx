@@ -13,20 +13,18 @@
         <TableView fx:id="tableTrip" layoutX="15.0" layoutY="9.0" prefHeight="638.0" prefWidth="900.0">
             <columns>
                 <TableColumn fx:id="id" prefWidth="39.0" text="id" />
-                <TableColumn fx:id="start" prefWidth="225.0" text="account_type" />
-                <TableColumn fx:id="end" prefWidth="217.0" text="first_name" />
-                <TableColumn fx:id="driver" prefWidth="243.0" text="last_name" />
-                <TableColumn fx:id="truck" prefWidth="175.0" text="status" />
+                <TableColumn fx:id="start" prefWidth="225.0" text="start" />
+                <TableColumn fx:id="userId" prefWidth="243.0" text="user" />
+                <TableColumn fx:id="truckId" prefWidth="235.0" text="truck" />
+                <TableColumn fx:id="deadline" prefWidth="157.0" text="deadline" />
             </columns>
         </TableView>
         <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start" />
         <TextField fx:id="startField" layoutX="932.0" layoutY="35.0" />
-        <Text layoutX="931.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End" />
-        <TextField fx:id="endField" layoutX="932.0" layoutY="81.0" />
-        <Text layoutX="932.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver" />
-        <TextField fx:id="driverField" layoutX="932.0" layoutY="135.0" />
-        <Text layoutX="932.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Truck" />
-        <TextField fx:id="truckField" layoutX="932.0" layoutY="195.0" />
+        <Text layoutX="931.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" />
+        <TextField fx:id="userField" layoutX="931.0" layoutY="103.0" />
+        <Text layoutX="931.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Truck" />
+        <TextField fx:id="truckField" layoutX="931.0" layoutY="163.0" />
         <Button fx:id="createButton" layoutX="1031.0" layoutY="530.0" mnemonicParsing="false" onAction="#createEntry" prefWidth="51.0" text="Create" />
         <Button fx:id="searchButton" layoutX="933.0" layoutY="530.0" mnemonicParsing="false" onAction="#searchTable" text="Search" />
         <Line endX="60.0" layoutX="1033.0" layoutY="634.0" startX="-116.0" />
@@ -37,6 +35,10 @@
         <TextField fx:id="idField" layoutX="994.0" layoutY="661.0" prefHeight="25.0" prefWidth="92.0" />
         <Button fx:id="deleteButton" layoutX="935.0" layoutY="661.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete" />
         <Button fx:id="backButton" layoutX="14.0" layoutY="665.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <TextField layoutX="931.0" layoutY="219.0" />
+      <Text layoutX="931.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deadline" />
+      <Text layoutX="932.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Format: 2022-01-21 " />
+      <Text layoutX="932.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Format: 2022-01-21 " />
     </children>
 
 </AnchorPane>

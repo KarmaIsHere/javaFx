@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import javax.persistence.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,21 +41,23 @@ public class ClassTrip {
     private LocalDate deadline;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
-    private ClassUser driver;
+    private ClassUser user;
+    private Long userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TRUCK_ID")
     private ClassTruck truck;
+    private Long truckId;
 
     @OneToMany(mappedBy = "trip")
 
     private List<ClassStopPoint> stopPoints;
     public ClassTrip(JSONObject jsonObject) {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
-        this.start = (LocalDate) jsonObject.get("start");
-        this.end = (LocalDate) jsonObject.get("end");
-        this.driver = (ClassUser) jsonObject.get("driver");
-        this.truck = (ClassTruck) jsonObject.get("truck");
+        this.start = LocalDate.parse(jsonObject.get("start").toString());
+        this.deadline = LocalDate.parse(jsonObject.get("deadline").toString());
+        getUser(Long.valueOf((Integer) jsonObject.get("user")));
+        getTruck(Long.valueOf((Integer) jsonObject.get("truck")));
     }
     public static List<ClassTrip> getArray() {
 
@@ -71,4 +74,28 @@ public class ClassTrip {
         return trips;
     }
 
+    private void getUser(Long id)
+    {
+        this.userId = id;
+        String response = CallEndpoints.Get("http://localhost:8080/api/user/users?id=" + id);
+        List<ClassUser> user = new ArrayList<ClassUser>();
+        JSONArray responseArray = new JSONArray(response);
+        if (responseArray != null) {
+            for (int i = 0; i < responseArray.length(); i++) {
+                this.user = new ClassUser(responseArray.getJSONObject(i));
+            }
+        }
+    }
+    private void getTruck(Long id)
+    {
+        this.truckId = id;
+        String response = CallEndpoints.Get("http://localhost:8080/api/truck/trucks?id=" + id);
+        List<ClassTruck> truck = new ArrayList<ClassTruck>();
+        JSONArray responseArray = new JSONArray(response);
+        if (responseArray != null) {
+            for (int i = 0; i < responseArray.length(); i++) {
+                this.truck = new ClassTruck(responseArray.getJSONObject(i));
+            }
+        }
+    }
 }

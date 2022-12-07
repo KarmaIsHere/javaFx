@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
@@ -132,62 +133,24 @@ public class ViewUser implements Initializable {
 
     public void searchTable(ActionEvent actionEvent) {
 
+        String url = getUrl("http://localhost:8080/api/user/users");
+        CallEndpoints.Get(url);
+        System.out.println(url);
+        fillTable();
     }
 
     public void submitEdit(ActionEvent actionEvent) {
-        Validation validate = new Validation();
-
-        JSONObject json = new JSONObject();
-
         String getLogin = CallEndpoints.Get("http://localhost:8080/api/user/users?login=" + editLoginField.getText());
 
-        if (getLogin.length() != 2) {
-            String url = "http://localhost:8080/api/user/update";
-            System.out.println(loginField.getText());
-            if (loginField.getText() != null) {
-                url = url.concat("?newLogin=");
-                url = url.concat((loginField.getText()));
-            }
-            if (emailField.getText() != null) {
-                url.concat("?newEmail=");
-                url.concat((emailField.getText()));
-            }
-            if (passwordField.getText() != null) {
-                url.concat("?newPassword=");
-                url.concat((passwordField.getText()));
-            }
-            if (firstNameField.getText() != null) {
-                url.concat("?newFirstName=");
-                url.concat((firstNameField.getText()));
-            }
-            if (lastNameField.getText() != null) {
-                url.concat("?newLastName=");
-                url.concat((lastNameField.getText()));
-            }
-            if (phoneNumberField.getText() != null) {
-                url.concat("?newPhoneNumber=");
-                url.concat((phoneNumberField.getText()));
-            }
-            if (salaryField.getText() != null) {
-                url.concat("?newSalary=");
-                url.concat((salaryField.getText()));
-            }
-            if (statusChoice.getValue() != null) {
-                url.concat("?newStatus=");
-                url.concat((statusChoice.getValue().toString()));
-            }
-
-            if (accountTypeChoice.getValue() != null) {
-                url.concat("?newAccountType=");
-                url.concat((accountTypeChoice.getValue()).toString());
-            }
-            System.out.println(url);
+        if (getLogin.length() != 2)
+        {
+            String url = getUrl("http://localhost:8080/api/user/update");
             CallEndpoints.Put(url);
             fillTable();
         } else {
             FxUtils fxUtils = new FxUtils();
             fxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Error", "Boohoo",
-                    "Login already exists.");
+                    "Such login does not exist.");
         }
     }
 
@@ -209,5 +172,47 @@ public class ViewUser implements Initializable {
 
     public void goBack(ActionEvent actionEvent) throws IOException {
         switchScene("main-window.fxml", backButton);
+    }
+
+    private String getUrl(String url)
+    {
+        if (loginField.getText() != null && loginField.getText() != "") {
+            url = url + "?newLogin=";
+            url = url + (loginField.getText());
+        }
+        if (emailField.getText() != null && loginField.getText() != "") {
+            url = url + "?newEmail=";
+            url = url + (emailField.getText());
+        }
+        if (passwordField.getText() != null ) {
+            url = url + "?newPassword=";
+            url = url + (passwordField.getText());
+        }
+        if (firstNameField.getText() != null ) {
+            url = url + "?newFirstName=";
+            url = url + (firstNameField.getText());
+        }
+        if (lastNameField.getText() != null ) {
+            url = url + "?newLastName=";
+            url = url + (lastNameField.getText());
+        }
+        if (phoneNumberField.getText() != null ) {
+            url = url + "?newPhoneNumber=";
+            url = url + (phoneNumberField.getText());
+        }
+        if (salaryField.getText() != null ) {
+            url = url + "?newSalary=";
+            url = url + (salaryField.getText());
+        }
+        if (statusChoice.getValue() != null && statusChoice.getValue() != "-----") {
+            url = url + "?newStatus=";
+            url = url + (statusChoice.getValue().toString());
+        }
+
+        if (accountTypeChoice.getValue() != null && statusChoice.getValue() != "-----") {
+            url = url + "?newAccountType=";
+            url = url + (accountTypeChoice.getValue()).toString();
+        }
+        return url;
     }
 }

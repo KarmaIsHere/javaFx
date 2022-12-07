@@ -52,7 +52,7 @@ public class ClassUser {
     @Column(name = "SALARY", nullable = false)
     private String salary;
 
-    @OneToMany(mappedBy = "driver")
+    @OneToMany(mappedBy = "user")
     private List<ClassTrip> trips;
 
     @OneToMany(mappedBy = "user")

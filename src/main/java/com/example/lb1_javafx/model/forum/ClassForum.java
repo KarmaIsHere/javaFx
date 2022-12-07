@@ -42,7 +42,8 @@ public class ClassForum {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
-    private ClassUser creator;
+    private ClassUser user;
+    private Long userId;
 
     @Column(name = "FORUM_CREATIONDATE", nullable = false)
     private Instant date;
@@ -52,8 +53,8 @@ public class ClassForum {
         this.title = (String) jsonObject.get("title");
         this.description = (String) jsonObject.get("description");
         this.category = (String) jsonObject.get("category");
-        this.creator = (ClassUser) jsonObject.get("creator");
-        this.date = (Instant) jsonObject.get("date");
+        this.date =  Instant.parse(jsonObject.get("date").toString());
+        getUser( Long.valueOf((Integer) jsonObject.get("user")));
 
 
     }
@@ -69,6 +70,19 @@ public class ClassForum {
             }
         }
         return forums;
+    }
+
+    private void getUser(Long id)
+    {
+        this.userId = id;
+        String response = CallEndpoints.Get("http://localhost:8080/api/user/users?id=" + id);
+        List<ClassUser> user = new ArrayList<ClassUser>();
+        JSONArray responseArray = new JSONArray(response);
+        if (responseArray != null) {
+            for (int i = 0; i < responseArray.length(); i++) {
+                this.user = new ClassUser(responseArray.getJSONObject(i));
+            }
+        }
     }
 }
 

@@ -31,11 +31,11 @@ public class ViewTrip implements Initializable {
     @FXML
     public TableColumn <ClassTrip, LocalDate> start;
     @FXML
-    public TableColumn <ClassTrip, LocalDate> end;
+    public TableColumn <ClassTrip, Long> userId;
     @FXML
-    public TableColumn <ClassTrip, ClassUser> driver;
+    public TableColumn <ClassTrip, Long> truckId;
     @FXML
-    public TableColumn <ClassTrip, ClassTruck> truck;
+    public TableColumn <ClassTrip, LocalDate> deadline;
     @FXML
     public TableView <ClassTrip> tableTrip;
 
@@ -46,9 +46,9 @@ public class ViewTrip implements Initializable {
     public void fillTable(){
         id.setCellValueFactory(new PropertyValueFactory<ClassTrip, Integer>("id"));
         start.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("start"));
-        end.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("end"));
-        driver.setCellValueFactory(new PropertyValueFactory<ClassTrip, ClassUser>("driver"));
-        truck.setCellValueFactory(new PropertyValueFactory<ClassTrip, ClassTruck>("truck"));
+        userId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("userId"));
+        truckId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("truckId"));
+        deadline.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("deadline"));
         tableTrip.getItems().setAll(ClassTrip.getArray());
     }
 

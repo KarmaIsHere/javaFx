@@ -16,6 +16,7 @@ public class CallEndpoints {
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(url))
+                    .version(HttpClient.Version.HTTP_1_1)
                     .GET()
                     .build();
 
@@ -52,7 +53,8 @@ public class CallEndpoints {
     public static String Put(String url) {
         try {
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
+                    .uri(new URI(url))
+                    .version(HttpClient.Version.HTTP_1_1)
                     .header("Content-Type", "application/json")
                     .PUT(HttpRequest.BodyPublishers.noBody())
                     .build();
@@ -63,6 +65,8 @@ public class CallEndpoints {
             return String.valueOf(response.statusCode());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
         return "500";
     }

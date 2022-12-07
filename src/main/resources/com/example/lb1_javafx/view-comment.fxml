@@ -15,8 +15,8 @@
                 <TableColumn fx:id="id" prefWidth="39.0" text="id" />
                 <TableColumn fx:id="text" prefWidth="575.0" text="text" />
                 <TableColumn fx:id="date" minWidth="0.0" prefWidth="79.0" text="date" />
-                <TableColumn fx:id="forum" prefWidth="53.0" text="forum" />
-                <TableColumn fx:id="user" prefWidth="153.0" text="user" />
+                <TableColumn fx:id="forumId" prefWidth="53.0" text="forum" />
+                <TableColumn fx:id="userId" prefWidth="153.0" text="user" />
             </columns>
         </TableView>
         <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
