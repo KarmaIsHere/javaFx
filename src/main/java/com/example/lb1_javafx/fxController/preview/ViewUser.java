@@ -148,14 +148,15 @@ public class ViewUser implements Initializable {
 
     public void searchTable(ActionEvent actionEvent) {
         String url = getUrl("http://localhost:8080/api/user/users", false);
+        System.out.println(url);
         String response = CallEndpoints.Get(url);
 
-        if(response.charAt(0) == '{'){
-            FxUtils fxUtils = new FxUtils();
-            fxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Welp", "Boohoo",
-                    "Nothing was found");
-        }
-        else fillSearchTable(response);
+//        if(response.charAt(0) == '{'){
+//            FxUtils fxUtils = new FxUtils();
+//            fxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Welp", "Boohoo",
+//                    "Nothing was found");
+//        }
+        /*else*/ fillSearchTable(response);
     }
 
     public void submitEdit(ActionEvent actionEvent) throws IOException {
@@ -191,46 +192,64 @@ public class ViewUser implements Initializable {
 
     private String getUrl(String url, boolean isPut)
     {
+        String originalUrl = url;
         if (!FxUtils.isFieldEmpty(editLoginField)) {
-            url = url + "?login=";
+            url = addSeparator(url, originalUrl);
+            url = url + "login=";
             url = url + (editLoginField.getText());
         }
         if (!FxUtils.isFieldEmpty(loginField)) {
-            url = url + "&Login=";
+            url = addSeparator(url, originalUrl);
+            url = url + "Login=";
             url = url + (loginField.getText());
         }
         if (!FxUtils.isFieldEmpty(emailField)) {
-            url = url + "&Email=";
+            url = addSeparator(url, originalUrl);
+            url = url + "Email=";
             url = url + (emailField.getText());
         }
         if (!FxUtils.isFieldEmpty(passwordField)) {
-            url = url + "&Password=";
+            url = addSeparator(url, originalUrl);
+            url = url + "Password=";
             url = url + (passwordField.getText());
         }
         if (!FxUtils.isFieldEmpty(firstNameField)) {
-            url = url + "&FirstName=";
+            url = addSeparator(url, originalUrl);
+            url = url + "FirstName=";
             url = url + (firstNameField.getText());
         }
         if (!FxUtils.isFieldEmpty(lastNameField)) {
-            url = url + "&LastName=";
+            url = addSeparator(url, originalUrl);
+            url = url + "LastName=";
             url = url + (lastNameField.getText());
         }
         if (!FxUtils.isFieldEmpty(phoneNumberField)) {
-            url = url + "&PhoneNumber=";
+            url = addSeparator(url, originalUrl);
+            url = url + "PhoneNumber=";
             url = url + (phoneNumberField.getText());
         }
         if (!FxUtils.isFieldEmpty(salaryField)) {
-            url = url + "&Salary=";
+            url = addSeparator(url, originalUrl);
+            url = url + "Salary=";
             url = url + (salaryField.getText());
         }
         if (statusChoice.getValue() != null && statusChoice.getValue() != "-----") {
-            url = url + "&Status=";
+            url = addSeparator(url, originalUrl);
+            url = url + "Status=";
             url = url + (statusChoice.getValue().toString());
         }
         if (accountTypeChoice.getValue() != null && statusChoice.getValue() != "-----") {
-            url = url + "&AccountType=";
+            url = addSeparator(url, originalUrl);
+            url = url + "AccountType=";
             url = url + (accountTypeChoice.getValue()).toString();
         }
         return url;
     }
+    private String addSeparator(String url, String originalUrl)
+    {
+        if (url == originalUrl) url = url + "?";
+        else url = url + "&";
+        return url;
+    }
+
 }
