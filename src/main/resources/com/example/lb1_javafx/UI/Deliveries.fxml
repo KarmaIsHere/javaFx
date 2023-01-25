@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1122.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab1.Controllers.Deliveries">
+   <children>
+      <TableView fx:id="Table" layoutX="35.0" layoutY="42.0" prefHeight="342.0" prefWidth="602.0">
+         <columns>
+            <TableColumn fx:id="ID" prefWidth="94.0" text="ID" />
+            <TableColumn fx:id="OrderID" prefWidth="94.0" text="Order_ID" />
+            <TableColumn fx:id="LocationID" prefWidth="92.0" text="Location_ID" />
+            <TableColumn fx:id="Status" prefWidth="99.0" text="Status" />
+            <TableColumn fx:id="Creator" prefWidth="94.0" text="Creator" />
+            <TableColumn fx:id="Driver" prefWidth="129.0" text="Driver" />
+         </columns>
+      </TableView>
+      <Button layoutX="993.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToMain" text="Back to main page" />
+      <TextField fx:id="NewValue" layoutX="663.0" layoutY="388.0" />
+      <Button fx:id="AsignBtn" layoutX="654.0" layoutY="42.0" mnemonicParsing="false" onAction="#AsignDriver" prefHeight="25.0" prefWidth="113.0" text="asign to me" />
+      <Button fx:id="FinishBtn" layoutX="654.0" layoutY="75.0" mnemonicParsing="false" onAction="#FinishDelivery" text="Finish this delivery" />
+      <Button layoutX="899.0" layoutY="626.0" mnemonicParsing="false" text="Priskirti sau" />
+      <Button fx:id="DeleteBtn" layoutX="654.0" layoutY="137.0" mnemonicParsing="false" onAction="#Delete" text="Delete choosen row" />
+      <ChoiceBox layoutX="35.0" layoutY="431.0" prefWidth="150.0" />
+      <Button layoutX="938.0" layoutY="687.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="790.0" layoutY="699.0" mnemonicParsing="false" text="See graph" />
+   </children>
+</AnchorPane>

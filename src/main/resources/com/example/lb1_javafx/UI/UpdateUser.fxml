@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab1.Controllers.UpdateUser">
+   <children>
+      <Text layoutX="167.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change password">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Button layoutX="255.0" layoutY="268.0" mnemonicParsing="false" onAction="#ChangePassword" text="Change password" />
+      <PasswordField fx:id="OldPassword" layoutX="236.0" layoutY="147.0" promptText="Enter old password" />
+      <PasswordField fx:id="NewPassword" layoutX="236.0" layoutY="188.0" promptText="enter new password" />
+      <PasswordField fx:id="ConfirmNewPassword" layoutX="236.0" layoutY="224.0" promptText="confirm new password" />
+   </children>
+</AnchorPane>

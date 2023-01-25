@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="716.0" prefWidth="1109.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.manager.ViewDriver">
+    <children>
+      <TableView fx:id="tableTrip" layoutX="17.0" layoutY="353.0" prefHeight="282.0" prefWidth="900.0">
+         <columns>
+            <TableColumn fx:id="tripId" prefWidth="49.0" text="id" />
+            <TableColumn fx:id="trip_status" prefWidth="123.0" text="status" />
+            <TableColumn fx:id="trip_start" prefWidth="179.0" text="trip_start_date" />
+            <TableColumn fx:id="trip_end" prefWidth="201.0" text="trip_end_date" />
+            <TableColumn fx:id="deadline" prefWidth="148.0" text="deadline" />
+            <TableColumn fx:id="truck_id" prefWidth="65.0" text="truck_id" />
+            <TableColumn fx:id="truck_brand" prefWidth="134.0" text="truck_brand" />
+         </columns>
+      </TableView>
+        <TableView fx:id="tableUser" layoutX="15.0" layoutY="31.0" prefHeight="282.0" prefWidth="900.0">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="49.0" text="id" />
+                <TableColumn fx:id="first_name" prefWidth="111.0" text="first_name" />
+                <TableColumn fx:id="last_name" prefWidth="123.0" text="last_name" />
+                <TableColumn fx:id="user_status" prefWidth="87.0" text="status" />
+                <TableColumn fx:id="email" prefWidth="128.0" text="email" />
+                <TableColumn fx:id="login" prefWidth="125.0" text="login" />
+                <TableColumn fx:id="phone_number" prefWidth="189.0" text="phone_number" />
+                <TableColumn fx:id="salary" prefWidth="87.0" text="salary" />
+            </columns>
+        </TableView>
+        <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
+        <TextField fx:id="firstNameField" layoutX="932.0" layoutY="35.0" />
+        <Text layoutX="931.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
+        <TextField fx:id="lastNameField" layoutX="932.0" layoutY="81.0" />
+        <Text layoutX="932.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
+        <TextField fx:id="loginField" layoutX="932.0" layoutY="135.0" />
+        <Text layoutX="932.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+        <TextField fx:id="emailField" layoutX="932.0" layoutY="195.0" />
+        <Text layoutX="932.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+        <TextField fx:id="passwordField" layoutX="932.0" layoutY="255.0" />
+        <Text layoutX="932.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
+        <TextField fx:id="phoneNumberField" layoutX="932.0" layoutY="315.0" />
+        <Text layoutX="932.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary" />
+        <TextField fx:id="salaryField" layoutX="932.0" layoutY="366.0" />
+        <Text layoutX="936.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account type" />
+        <ChoiceBox fx:id="accountTypeChoice" layoutX="932.0" layoutY="425.0" prefWidth="150.0" />
+        <Text layoutX="931.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+        <ChoiceBox fx:id="statusChoice" layoutX="932.0" layoutY="485.0" prefWidth="150.0" />
+        <Button fx:id="createButton" layoutX="1031.0" layoutY="530.0" mnemonicParsing="false" onAction="#createEntry" prefWidth="51.0" text="Create" />
+        <Button fx:id="searchButton" layoutX="933.0" layoutY="530.0" mnemonicParsing="false" onAction="#searchTable" text="Search" />
+        <Line endX="60.0" layoutX="1033.0" layoutY="634.0" startX="-116.0" />
+        <Text layoutX="991.0" layoutY="585.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Existing Login" wrappingWidth="92.0" />
+        <Button fx:id="editButton" layoutX="932.0" layoutY="589.0" mnemonicParsing="false" onAction="#submitEdit" prefHeight="25.0" prefWidth="51.0" text="Edit" />
+        <TextField fx:id="editLoginField" layoutX="991.0" layoutY="589.0" prefHeight="25.0" prefWidth="92.0" />
+        <Text layoutX="999.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="16.259765625" />
+        <TextField fx:id="idField" layoutX="994.0" layoutY="661.0" prefHeight="25.0" prefWidth="92.0" />
+        <Button fx:id="deleteButton" layoutX="935.0" layoutY="661.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete" />
+        <Button fx:id="backButton" layoutX="14.0" layoutY="665.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <Text layoutX="475.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trips" />
+      <Text layoutX="457.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drivers" />
+    </children>
+
+</AnchorPane>

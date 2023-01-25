@@ -16,6 +16,7 @@ module com.example.lb1_javafx {
     opens com.example.lb1_javafx.utils to javafx.fxml;
     opens com.example.lb1_javafx.model to javafx.base;
     exports com.example.lb1_javafx.fxController.preview;
+    exports com.example.lb1_javafx.fxController.manager;
     opens com.example.lb1_javafx.fxController.preview to javafx.fxml;
     opens com.example.lb1_javafx.model.user to javafx.base;
     opens com.example.lb1_javafx.model.order to javafx.base;

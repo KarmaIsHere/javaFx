@@ -1,8 +1,10 @@
 package com.example.lb1_javafx.fxController;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -35,9 +37,14 @@ public class MainWindow {
     public AnchorPane ViewDestination;
     public AnchorPane ViewShipment;
     public AnchorPane ViewStopPoint;
+    public AnchorPane DriverMain;
+    public Tab manageTrips;
+    public TabPane mainTabPane;
+    public Tab driverMain;
 
 
     public void goBack(ActionEvent actionEvent) throws IOException {
         switchScene("login-window.fxml", openUserButton);
     }
+
 }

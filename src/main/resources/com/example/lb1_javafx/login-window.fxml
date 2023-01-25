@@ -7,10 +7,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.LoginWindow">
    <children>
-      <Button fx:id="loginButton" layoutX="257.0" layoutY="242.0" mnemonicParsing="false" onAction="#validate" text="Log in" />
+      <Button fx:id="loginButton" layoutX="338.0" layoutY="242.0" mnemonicParsing="false" onAction="#validate" text="Log in" />
       <Text layoutX="176.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
       <TextField fx:id="loginField" layoutX="176.0" layoutY="105.0" prefHeight="25.0" prefWidth="211.0" />
       <Text layoutX="176.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
       <TextField fx:id="pswField" layoutX="176.0" layoutY="170.0" prefHeight="25.0" prefWidth="211.0" />
+      <Button fx:id="regButton" layoutX="176.0" layoutY="242.0" mnemonicParsing="false" onAction="#goRegister" text="Registration" />
    </children>
 </AnchorPane>

@@ -13,10 +13,12 @@
         <TableView fx:id="tableTrip" layoutX="15.0" layoutY="9.0" prefHeight="638.0" prefWidth="900.0">
             <columns>
                 <TableColumn fx:id="id" prefWidth="39.0" text="id" />
+                <TableColumn fx:id="deadline" minWidth="5.0" prefWidth="97.0" text="deadline" />
                 <TableColumn fx:id="start" prefWidth="225.0" text="start" />
-                <TableColumn fx:id="userId" prefWidth="243.0" text="user" />
-                <TableColumn fx:id="truckId" prefWidth="235.0" text="truck" />
-                <TableColumn fx:id="deadline" prefWidth="157.0" text="deadline" />
+                <TableColumn fx:id="end" prefWidth="104.0" text="end" />
+                <TableColumn fx:id="userId" prefWidth="139.0" text="user" />
+                <TableColumn fx:id="truckId" prefWidth="173.0" text="truck" />
+            <TableColumn fx:id="manager" prefWidth="122.0" text="manager" />
             </columns>
         </TableView>
         <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start" />

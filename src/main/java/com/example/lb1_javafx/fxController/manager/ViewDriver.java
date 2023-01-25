@@ -1,4 +1,4 @@
-package com.example.lb1_javafx.fxController.preview;
+package com.example.lb1_javafx.fxController.manager;
 
 import com.example.lb1_javafx.CallEndpoints;
 import com.example.lb1_javafx.model.user.UserAccountType;
@@ -23,24 +23,20 @@ import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 
-public class ViewUser implements Initializable {
+public class ViewDriver implements Initializable {
 
     @FXML
     public TableColumn<ClassUser, Integer> id;
-    @FXML
-    public TableColumn<ClassUser, UserAccountType> account_type;
     @FXML
     public TableColumn<ClassUser, String> first_name;
     @FXML
     public TableColumn<ClassUser, String> last_name;
     @FXML
-    public TableColumn<ClassUser, UserStatus> status;
+    public TableColumn<ClassUser, UserStatus> user_status;
     @FXML
     public TableColumn<ClassUser, String> email;
     @FXML
     public TableColumn<ClassUser, String> login;
-    @FXML
-    public TableColumn<ClassUser, String> password;
     @FXML
     public TableColumn<ClassUser, String> phone_number;
     @FXML
@@ -58,7 +54,6 @@ public class ViewUser implements Initializable {
     public TextField accountTypeField;
     public TextField statusField;
     public Button backButton;
-    public Text phoneNumber;
     public TextField passwordField;
     public TextField lastNameField;
     public TextField firstNameField;
@@ -67,7 +62,6 @@ public class ViewUser implements Initializable {
     public TextField salaryField;
     public ChoiceBox statusChoice;
     public ChoiceBox accountTypeChoice;
-    public Text Status;
     public TextField editLoginField;
 
     FxUtils fxUtils = new FxUtils();
@@ -90,13 +84,11 @@ public class ViewUser implements Initializable {
 
     public void fillTable() {
         id.setCellValueFactory(new PropertyValueFactory<ClassUser, Integer>("id"));
-        account_type.setCellValueFactory(new PropertyValueFactory<ClassUser, UserAccountType>("account_type"));
         first_name.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("first_name"));
         last_name.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("last_name"));
-        status.setCellValueFactory(new PropertyValueFactory<ClassUser, UserStatus>("status"));
+        user_status.setCellValueFactory(new PropertyValueFactory<ClassUser, UserStatus>("status"));
         email.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("email"));
         login.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("login"));
-        password.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("password"));
         phone_number.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("phone_number"));
         salary.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("salary"));
     }
@@ -238,7 +230,7 @@ public class ViewUser implements Initializable {
             url = url + "Status=";
             url = url + (statusChoice.getValue().toString());
         }
-        if (accountTypeChoice.getValue() != null && accountTypeChoice.getValue() != "-----") {
+        if (accountTypeChoice.getValue() != null && statusChoice.getValue() != "-----") {
             url = addSeparator(url, originalUrl);
             url = url + "AccountType=";
             url = url + (accountTypeChoice.getValue()).toString();

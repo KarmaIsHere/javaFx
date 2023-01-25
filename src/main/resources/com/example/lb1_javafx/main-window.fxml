@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="730.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.MainWindow">
    <children>
       <Button fx:id="logOutButton" layoutX="814.0" layoutY="561.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="82.0" text="Log Out" />
-      <TabPane prefHeight="730.0" prefWidth="1096.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="mainTabPane" prefHeight="730.0" prefWidth="1096.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="user" text="Users">
             <content>
@@ -57,6 +57,24 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
                 <fx:include fx:id="ViewStopPoint" source="view-stop-point.fxml" />
+            </Tab>
+            <Tab fx:id="driverMain" text="Main">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+              <fx:include fx:id="DriverMain" source="driver-main.fxml" />
+            </Tab>
+            <Tab fx:id="driver" text="Drivers">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+              <fx:include fx:id="Driver" source="view-drivers.fxml" />
+            </Tab>
+            <Tab fx:id="manageTrips"  text="Manage Trips">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+              <fx:include fx:id="ManageTrips" source="newTripCreationSequence/fillTripDetails.fxml" />
             </Tab>
         </tabs>
       </TabPane>

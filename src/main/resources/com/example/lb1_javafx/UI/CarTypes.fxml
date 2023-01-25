@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab1.ClassesOFObjects.Vehicle">
+   <children>
+      <TableView fx:id="Table" layoutX="25.0" layoutY="32.0" prefHeight="200.0" prefWidth="698.0">
+        <columns>
+          <TableColumn fx:id="CarID" prefWidth="139.0" text="Car_ID" />
+          <TableColumn fx:id="LicensePlate" prefWidth="102.0" text="License Plate" />
+            <TableColumn fx:id="Model" prefWidth="98.0" text="Model" />
+            <TableColumn fx:id="FuelConsuption" prefWidth="95.0" text="FuelConsuption" />
+            <TableColumn fx:id="Capacity" prefWidth="115.0" text="Capacity" />
+            <TableColumn fx:id="Driver" prefWidth="148.0" text="Driver" />
+        </columns>
+      </TableView>
+      <Button fx:id="Addbtn" layoutX="693.0" layoutY="294.0" mnemonicParsing="false" onAction="#AddnewInfo" text="Add new car" />
+      <Button fx:id="DeleteBtn" layoutX="746.0" layoutY="126.0" mnemonicParsing="false" onAction="#Delete" text="Delete selected" />
+      <Button fx:id="UpdateBtn" layoutX="746.0" layoutY="168.0" mnemonicParsing="false" onAction="#UpdateInfo" text="Update selected cars license number" />
+      <Button layoutX="871.0" layoutY="26.0" mnemonicParsing="false" onAction="#BackToMain" text="Back to main page" />
+      <Text fx:id="LicensePlateLabel" layoutX="63.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="License Plate" />
+      <TextField fx:id="PlateField" layoutX="55.0" layoutY="294.0" prefHeight="25.0" prefWidth="83.0" />
+      <Text fx:id="ModelLabel" layoutX="189.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" />
+      <TextField fx:id="ModelField" layoutX="165.0" layoutY="294.0" prefHeight="25.0" prefWidth="83.0" />
+      <Text fx:id="FuelLabel" layoutX="278.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel Consuption" />
+      <TextField fx:id="FuelField" layoutX="280.0" layoutY="294.0" prefHeight="25.0" prefWidth="83.0" />
+      <Text fx:id="CapacityLabel" layoutX="425.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity" />
+      <TextField fx:id="CapacityField" layoutX="406.0" layoutY="294.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextField fx:id="NewLicenseNumber" layoutX="746.0" layoutY="207.0" prefHeight="25.0" prefWidth="210.0" promptText="New license number" />
+      <Text fx:id="DriverLabel" layoutX="579.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver" />
+      <ChoiceBox fx:id="DriverList" layoutX="520.0" layoutY="294.0" prefWidth="150.0" />
+      <Button fx:id="AssignBtn" layoutX="746.0" layoutY="79.0" mnemonicParsing="false" onAction="#AssignCar" text="Assign to  me" />
+   </children>
+</AnchorPane>

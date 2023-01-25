@@ -17,11 +17,9 @@ public class LoginWindow {
     public TextField loginField;
     public TextField pswField;
     public Button loginButton;
+    public Button regButton;
 
     public void validate(ActionEvent actionEvent) throws IOException {
-        Validation validate = new Validation();
-
-        JSONObject json = new JSONObject();
 
         String getLogin = CallEndpoints.Get("http://localhost:8080/api/user/users?login=" + loginField.getText() + "&password=" + pswField.getText());
 
@@ -34,5 +32,9 @@ public class LoginWindow {
         }
 
 
+    }
+
+    public void goRegister(ActionEvent actionEvent) throws IOException {
+        switchScene("register-window.fxml", loginButton);
     }
 }
