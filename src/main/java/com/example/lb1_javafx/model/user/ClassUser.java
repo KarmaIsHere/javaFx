@@ -19,7 +19,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassUser {
+public class ClassUser  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID", nullable = false)
@@ -61,6 +61,8 @@ public class ClassUser {
     @OneToMany(mappedBy = "user")
     private List<ClassComment> forums;
 
+
+
     public ClassUser(JSONObject jsonObject) {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
         this.account_type = (UserAccountType.valueOf(jsonObject.get("accountType").toString()));
@@ -73,6 +75,10 @@ public class ClassUser {
         this.phone_number = (String) jsonObject.get("phoneNumber");
         this.salary = (String) jsonObject.get("salary");
     }
+
+
+
+
     public static List<ClassUser> getArray() {
         return getArray(CallEndpoints.Get("http://localhost:8080/api/user/users"));
     }

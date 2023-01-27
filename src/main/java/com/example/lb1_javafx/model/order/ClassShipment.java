@@ -36,6 +36,8 @@ public class ClassShipment {
     private ClassDestination destination;
     private Long destinationId;
 
+    public String destinationInfo;
+
     @OneToMany(mappedBy = "shipment")
     private List<ClassStopPoint> stopPoints;
 
@@ -44,13 +46,18 @@ public class ClassShipment {
         this.description = (String) jsonObject.get("description");
         this.weight = (String) jsonObject.get("weight");
         getDestination(Long.valueOf((Integer) jsonObject.get("destinationId")));
+        destinationInfo = this.destination.getCountry() + ", " +
+                          this.destination.getCity() + ", " +
+                          this.destination.getStreetAddress();
     }
 
     public static List<ClassShipment> getArray() {
+        return getArray(CallEndpoints.Get("http://localhost:8080/api/shipment/shipments"));
+    }
+    public static List<ClassShipment> getArray(String body) {
 
-        String response = CallEndpoints.Get("http://localhost:8080/api/shipment/shipments");
         List<ClassShipment> shipments = new ArrayList<ClassShipment>();
-        JSONArray responseArray = new JSONArray(response);
+        JSONArray responseArray = new JSONArray(body);
         if (responseArray != null) {
             for (int i = 0; i < responseArray.length(); i++) {
                 shipments.add(new ClassShipment(responseArray.getJSONObject(i)));

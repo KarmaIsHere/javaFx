@@ -19,7 +19,7 @@ public class CreateWindow {
 
     public Button createButton;
     public Button backButton;
-    ObservableList<String> availableChoices = FXCollections.observableArrayList("COMPLETED", "CANCELLED", "ACTIVE");
+    ObservableList<String> availableChoices = FXCollections.observableArrayList("COMPLETED", "CANCELLED", "ACTIVE", "");
     public TextField title;
     public DatePicker releaseDate;
     public TextField count;
@@ -29,7 +29,7 @@ public class CreateWindow {
     @FXML
     private void initialize(){
         gameStatus.setItems(availableChoices);
-        gameStatus.setValue("-----");
+        gameStatus.setValue("");
     }
 
     public void validate(ActionEvent actionEvent) throws IOException {

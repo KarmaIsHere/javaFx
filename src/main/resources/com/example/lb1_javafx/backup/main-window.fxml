@@ -43,7 +43,7 @@
 <!--              </content>-->
 <!--            </Tab>-->
 <!--            <Tab fx:id="trip" text="Trips">-->
-<!--               <fx:include fx:id="ViewTrip" source="view-trip.fxml"/>-->
+<!--               <fx:include fx:id="ManagerViewTrip" source="view-trip.fxml"/>-->
 <!--              <content>-->
 <!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
 <!--              </content>-->

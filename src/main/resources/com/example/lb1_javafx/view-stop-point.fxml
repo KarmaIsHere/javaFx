@@ -13,14 +13,14 @@
         <TableView fx:id="tableStopPoint" layoutX="15.0" layoutY="9.0" prefHeight="638.0" prefWidth="900.0">
             <columns>
                 <TableColumn fx:id="id" prefWidth="39.0" text="id" />
-                <TableColumn fx:id="nr" prefWidth="103.0" text="nr" />
+
                 <TableColumn fx:id="stopDate" prefWidth="479.0" text="stopDate" />
                 <TableColumn fx:id="shipment" prefWidth="147.0" text="shipment" />
                 <TableColumn fx:id="trip" prefWidth="131.0" text="trip" />
             </columns>
         </TableView>
-        <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr" />
-        <TextField fx:id="nrField" layoutX="932.0" layoutY="35.0" />
+
+
         <Text layoutX="931.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stop Date" />
         <TextField fx:id="stopDateField" layoutX="932.0" layoutY="81.0" />
         <Text layoutX="932.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shipment" />

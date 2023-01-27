@@ -5,7 +5,6 @@ import com.example.lb1_javafx.model.user.UserAccountType;
 import com.example.lb1_javafx.model.user.UserStatus;
 import com.example.lb1_javafx.model.user.ClassUser;
 import com.example.lb1_javafx.utils.FxUtils;
-import com.example.lb1_javafx.utils.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +17,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
@@ -26,7 +24,7 @@ import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 public class ViewUser implements Initializable {
 
     @FXML
-    public TableColumn<ClassUser, Integer> id;
+    public TableColumn<ClassUser, Long> id;
     @FXML
     public TableColumn<ClassUser, UserAccountType> account_type;
     @FXML
@@ -72,9 +70,9 @@ public class ViewUser implements Initializable {
 
     FxUtils fxUtils = new FxUtils();
 
-    ObservableList<String> statusChoices = FXCollections.observableArrayList("FREE", "WORKING", "ABSENT");
+    ObservableList<String> statusChoices = FXCollections.observableArrayList("FREE", "WORKING", "ABSENT", "");
 
-    ObservableList<String> accountTypeChoices = FXCollections.observableArrayList("USER", "MANAGER", "DRIVER", "ADMIN");
+    ObservableList<String> accountTypeChoices = FXCollections.observableArrayList("USER", "MANAGER", "DRIVER", "ADMIN", "");
 
 
     @Override
@@ -82,14 +80,14 @@ public class ViewUser implements Initializable {
         fillAllTable();
 
         statusChoice.setItems(statusChoices);
-        statusChoice.setValue("-----");
+        statusChoice.setValue("");
 
         accountTypeChoice.setItems(accountTypeChoices);
-        accountTypeChoice.setValue("-----");
+        accountTypeChoice.setValue("");
     }
 
-    public void fillTable() {
-        id.setCellValueFactory(new PropertyValueFactory<ClassUser, Integer>("id"));
+    private void fillTable() {
+        id.setCellValueFactory(new PropertyValueFactory<ClassUser, Long>("id"));
         account_type.setCellValueFactory(new PropertyValueFactory<ClassUser, UserAccountType>("account_type"));
         first_name.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("first_name"));
         last_name.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("last_name"));
@@ -101,12 +99,12 @@ public class ViewUser implements Initializable {
         salary.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("salary"));
     }
 
-    public void fillSearchTable(String body) {
+    private void fillSearchTable(String body) {
         fillTable();
         tableUser.getItems().setAll(ClassUser.getArray(body));
     }
 
-    public void fillAllTable() {
+    private void fillAllTable() {
         fillTable();
         tableUser.getItems().setAll(ClassUser.getArray());
     }
@@ -147,16 +145,16 @@ public class ViewUser implements Initializable {
 
 
     public void searchTable(ActionEvent actionEvent) {
-        String url = getUrl("http://localhost:8080/api/user/users", false);
+        String url = getUrl("http://localhost:8080/api/user/users");
         System.out.println(url);
         String response = CallEndpoints.Get(url);
 
-//        if(response.charAt(0) == '{'){
-//            FxUtils fxUtils = new FxUtils();
-//            fxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Welp", "Boohoo",
-//                    "Nothing was found");
-//        }
-        /*else*/ fillSearchTable(response);
+        if(response.length() == 2){
+            FxUtils fxUtils = new FxUtils();
+            fxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Welp", "Boohoo",
+                    "Nothing was found");
+        }
+        else fillSearchTable(response);
     }
 
     public void submitEdit(ActionEvent actionEvent) throws IOException {
@@ -164,7 +162,7 @@ public class ViewUser implements Initializable {
 
         if (getLogin.length() != 2)
         {
-            String url = getUrl("http://localhost:8080/api/user/update", true);
+            String url = getUrl("http://localhost:8080/api/user/update");
             System.out.println(url);
             String statusCode = CallEndpoints.Put(url);
             fillAllTable();
@@ -177,9 +175,22 @@ public class ViewUser implements Initializable {
 
     public void deleteEntry(ActionEvent actionEvent) throws IOException {
         String getLogin = CallEndpoints.Get("http://localhost:8080/api/user/users?id=" + idField.getText());
+
+        String tripManager = CallEndpoints.Get("http://localhost:8080/api/trip/trips?managerId=" + idField.getText());
+        String tripUser = CallEndpoints.Get("http://localhost:8080/api/trip/trips?userId=" + idField.getText());
+        if (tripManager.length() != 2) {
+            FxUtils fxUtils = new FxUtils();
+            FxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Error", "Boohoo",
+                    "Manager can't be deleted because he is assigned to a trip");
+        }
+        if (tripUser.length() != 2) {
+            FxUtils fxUtils = new FxUtils();
+            FxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Error", "Boohoo",
+                    "Driver can't be deleted because he is assigned to a trip");
+        }
         if (getLogin.length() != 2) {
             String statusCode = CallEndpoints.DELETE("http://localhost:8080/api/user/delete?id=" + idField.getText());
-            fillTable();
+            fillAllTable();
         } else {
             FxUtils fxUtils = new FxUtils();
             fxUtils.alertErrorMsg(Alert.AlertType.ERROR, "Error", "Boohoo",
@@ -190,7 +201,7 @@ public class ViewUser implements Initializable {
         switchScene("login-window.fxml", backButton);
     }
 
-    private String getUrl(String url, boolean isPut)
+    private String getUrl(String url)
     {
         String originalUrl = url;
         if (!FxUtils.isFieldEmpty(editLoginField)) {
@@ -233,12 +244,12 @@ public class ViewUser implements Initializable {
             url = url + "Salary=";
             url = url + (salaryField.getText());
         }
-        if (statusChoice.getValue() != null && statusChoice.getValue() != "-----") {
+        if (statusChoice.getValue() != null && statusChoice.getValue() != "") {
             url = addSeparator(url, originalUrl);
             url = url + "Status=";
             url = url + (statusChoice.getValue().toString());
         }
-        if (accountTypeChoice.getValue() != null && accountTypeChoice.getValue() != "-----") {
+        if (accountTypeChoice.getValue() != null && accountTypeChoice.getValue() != "") {
             url = addSeparator(url, originalUrl);
             url = url + "AccountType=";
             url = url + (accountTypeChoice.getValue()).toString();

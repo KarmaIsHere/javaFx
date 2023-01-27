@@ -17,14 +17,14 @@ import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 
-public class ViewTrip implements Initializable {
+public class ManagerViewTrip implements Initializable {
     public Button createButton;
     public Button searchButton;
     public Button editButton;
     public Button backButton;
     public Button refresh;
     @FXML
-    public TableColumn <ClassTrip, Integer> id;
+    public TableColumn <ClassTrip, Long> id;
     @FXML
     public TableColumn <ClassTrip, LocalDate> start;
     @FXML
@@ -41,7 +41,7 @@ public class ViewTrip implements Initializable {
         fillTable();
     }
     public void fillTable(){
-        id.setCellValueFactory(new PropertyValueFactory<ClassTrip, Integer>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("id"));
         start.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("start"));
         userId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("userId"));
         truckId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("truckId"));
@@ -50,6 +50,7 @@ public class ViewTrip implements Initializable {
     }
 
     public void createEntry(ActionEvent actionEvent) {
+
     }
 
     public void searchTable(ActionEvent actionEvent) {

@@ -53,12 +53,14 @@ public class ClassTruck {
         this.weight = (String) jsonObject.get("weight");
         this.status = (TruckStatus.valueOf(jsonObject.get("status").toString()));
     }
-    public static List<ClassTruck> getArray() {
 
-        String response = CallEndpoints.Get("http://localhost:8080/api/truck/trucks");
+    public static List<ClassTruck> getArray() {
+        return getArray(CallEndpoints.Get("http://localhost:8080/api/truck/trucks"));
+    }
+    public static List<ClassTruck> getArray(String body) {
 
         List<ClassTruck> trucks = new ArrayList<ClassTruck>();
-        JSONArray responseArray = new JSONArray(response);
+        JSONArray responseArray = new JSONArray(body);
    
         if (responseArray != null) {
             for (int i=0;i<responseArray.length();i++){

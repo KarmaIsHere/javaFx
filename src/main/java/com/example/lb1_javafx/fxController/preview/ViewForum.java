@@ -27,7 +27,7 @@ public class ViewForum  implements Initializable {
     public Button backButton;
     public Button editButton;
     @FXML
-    public TableColumn <ClassForum, Integer> id;
+    public TableColumn <ClassForum, Long> id;
     @FXML
     public TableColumn <ClassForum, String> title;
     @FXML
@@ -51,7 +51,7 @@ public class ViewForum  implements Initializable {
     }
 
     public void fillTable(){
-        id.setCellValueFactory(new PropertyValueFactory<ClassForum, Integer>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<ClassForum, Long>("id"));
         title.setCellValueFactory(new PropertyValueFactory<ClassForum, String>("title"));
         description.setCellValueFactory(new PropertyValueFactory<ClassForum, String>("description"));
         category.setCellValueFactory(new PropertyValueFactory<ClassForum, String>("category"));

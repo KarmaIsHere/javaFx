@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="716.0" prefWidth="1097.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.manager.ViewTrip">
+<AnchorPane prefHeight="716.0" prefWidth="1097.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.manager.ManagerViewTrip">
     <children>
         <TableView fx:id="tableTrip" layoutX="15.0" layoutY="37.0" prefHeight="278.0" prefWidth="900.0">
             <columns>
@@ -40,7 +40,6 @@
         <Text layoutX="932.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Format: 2022-01-21 " />
       <TableView layoutX="15.0" layoutY="375.0" prefHeight="302.0" prefWidth="900.0">
         <columns>
-          <TableColumn prefWidth="29.0" text="nr" />
           <TableColumn prefWidth="109.0" text="time_visited" />
             <TableColumn prefWidth="271.0" text="shipment" />
             <TableColumn prefWidth="71.0" text="weight" />

@@ -32,13 +32,13 @@ public class RegisterWindow implements Initializable {
     public ChoiceBox roleField;
 
     FxUtils fxUtils = new FxUtils();
-    ObservableList<String> accountTypeChoices = FXCollections.observableArrayList("USER", "MANAGER", "DRIVER", "ADMIN");
+    ObservableList<String> accountTypeChoices = FXCollections.observableArrayList("USER", "MANAGER", "DRIVER", "ADMIN", "");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         roleField.setItems(accountTypeChoices);
-        roleField.setValue("-----");
+        roleField.setValue("");
     }
 
     public void validateRegistration(ActionEvent actionEvent) throws IOException {

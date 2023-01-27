@@ -1,6 +1,7 @@
 package com.example.lb1_javafx.model.order;
 
 import com.example.lb1_javafx.CallEndpoints;
+import com.example.lb1_javafx.model.ClassTruck;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -44,15 +45,17 @@ public class ClassDestination {
     }
 
     public static List<ClassDestination> getArray() {
+        return getArray(CallEndpoints.Get("http://localhost:8080/api/destination/destinations"));
+    }
+    public static List<ClassDestination> getArray(String body) {
 
-        String response = CallEndpoints.Get("http://localhost:8080/api/destination/destinations");
-        List<ClassDestination> shipments = new ArrayList<ClassDestination>();
-        JSONArray responseArray = new JSONArray(response);
+        List<ClassDestination> destinations = new ArrayList<ClassDestination>();
+        JSONArray responseArray = new JSONArray(body);
         if (responseArray != null) {
             for (int i = 0; i < responseArray.length(); i++) {
-                shipments.add(new ClassDestination(responseArray.getJSONObject(i)));
+                destinations.add(new ClassDestination(responseArray.getJSONObject(i)));
             }
         }
-        return shipments;
+        return destinations;
     }
 }

@@ -28,7 +28,7 @@ public class ViewComment implements Initializable {
     public Button backButton;
     public Button refresh;
     @FXML
-    public TableColumn<ClassComment, Integer> id;
+    public TableColumn<ClassComment, Long> id;
     @FXML
     public TableColumn <ClassComment, String> text;
     @FXML
@@ -44,7 +44,7 @@ public class ViewComment implements Initializable {
         fillTable();
     }
     public void fillTable(){
-        id.setCellValueFactory(new PropertyValueFactory<ClassComment, Integer>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<ClassComment, Long>("id"));
         text.setCellValueFactory(new PropertyValueFactory<ClassComment, String>("text"));
         date.setCellValueFactory(new PropertyValueFactory<ClassComment, Instant>("date"));
         forumId.setCellValueFactory(new PropertyValueFactory<ClassComment, Long>("forumId"));

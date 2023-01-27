@@ -34,12 +34,6 @@
               </content>
                 <fx:include fx:id="ViewForum" source="view-forum.fxml" />
             </Tab>
-            <Tab fx:id="trip" text="Trips">
-              <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-                <fx:include fx:id="ViewTrip" source="view-trip.fxml" />
-            </Tab>
             <Tab fx:id="destination" text="Destinations">
               <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
@@ -52,29 +46,17 @@
               </content>
                 <fx:include fx:id="ViewShipment" source="view-shipment.fxml" />
             </Tab>
-            <Tab fx:id="stopPoint" text="Stop Points">
-              <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-                <fx:include fx:id="ViewStopPoint" source="view-stop-point.fxml" />
-            </Tab>
-            <Tab fx:id="driverMain" text="Main">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-              <fx:include fx:id="DriverMain" source="driver-main.fxml" />
-            </Tab>
             <Tab fx:id="driver" text="Drivers">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
               <fx:include fx:id="Driver" source="view-drivers.fxml" />
             </Tab>
-            <Tab fx:id="manageTrips"  text="Manage Trips">
+            <Tab fx:id="manageTrips" text="Manage Trips">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
-              <fx:include fx:id="ManageTrips" source="newTripCreationSequence/fillTripDetails.fxml" />
+              <fx:include fx:id="ManageTrips" source="newTripCreationSequence/createStopPointsForTrip.fxml" />
             </Tab>
         </tabs>
       </TabPane>

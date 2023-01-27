@@ -27,15 +27,13 @@ public class ViewStopPoint implements Initializable {
     public Button createButton;
     public Button searchButton;
     @FXML
-    public TableColumn <ClassStopPoint, Integer> id;
-    @FXML
-    public TableColumn <ClassStopPoint, Integer> nr;
+    public TableColumn <ClassStopPoint, Long> id;
     @FXML
     public TableColumn <ClassStopPoint, LocalDate> stopDate;
     @FXML
-    public TableColumn <ClassStopPoint, ClassShipment> shipment;
+    public TableColumn <ClassStopPoint, Long> shipment;
     @FXML
-    public TableColumn <ClassStopPoint, ClassTrip> trip;
+    public TableColumn <ClassStopPoint, Long> trip;
     @FXML
     public TableView  <ClassStopPoint> tableStopPoint;
 
@@ -50,11 +48,10 @@ public class ViewStopPoint implements Initializable {
     }
 
     public void fillTable(){
-        id.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Integer>("id"));
-        nr.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Integer>("nr"));
+        id.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Long>("id"));
         stopDate.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, LocalDate>("stopDate"));
-        shipment.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, ClassShipment>("shipment"));
-        trip.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, ClassTrip>("trip"));
+        shipment.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Long>("shipment_id"));
+        trip.setCellValueFactory(new PropertyValueFactory<ClassStopPoint, Long>("trip_id"));
         tableStopPoint.getItems().setAll(ClassStopPoint.getArray());
 
     }

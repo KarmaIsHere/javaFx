@@ -26,7 +26,7 @@ import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
 public class ViewDriver implements Initializable {
 
     @FXML
-    public TableColumn<ClassUser, Integer> id;
+    public TableColumn<ClassUser, Long> id;
     @FXML
     public TableColumn<ClassUser, String> first_name;
     @FXML
@@ -68,7 +68,7 @@ public class ViewDriver implements Initializable {
 
     ObservableList<String> statusChoices = FXCollections.observableArrayList("FREE", "WORKING", "ABSENT");
 
-    ObservableList<String> accountTypeChoices = FXCollections.observableArrayList("USER", "MANAGER", "DRIVER", "ADMIN");
+    ObservableList<String> accountTypeChoices = FXCollections.observableArrayList("USER", "MANAGER", "DRIVER", "ADMIN", "");
 
 
     @Override
@@ -76,14 +76,14 @@ public class ViewDriver implements Initializable {
         fillAllTable();
 
         statusChoice.setItems(statusChoices);
-        statusChoice.setValue("-----");
+        statusChoice.setValue("");
 
         accountTypeChoice.setItems(accountTypeChoices);
-        accountTypeChoice.setValue("-----");
+        accountTypeChoice.setValue("");
     }
 
     public void fillTable() {
-        id.setCellValueFactory(new PropertyValueFactory<ClassUser, Integer>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<ClassUser, Long>("id"));
         first_name.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("first_name"));
         last_name.setCellValueFactory(new PropertyValueFactory<ClassUser, String>("last_name"));
         user_status.setCellValueFactory(new PropertyValueFactory<ClassUser, UserStatus>("status"));
@@ -225,12 +225,12 @@ public class ViewDriver implements Initializable {
             url = url + "Salary=";
             url = url + (salaryField.getText());
         }
-        if (statusChoice.getValue() != null && statusChoice.getValue() != "-----") {
+        if (statusChoice.getValue() != null && statusChoice.getValue() != "") {
             url = addSeparator(url, originalUrl);
             url = url + "Status=";
             url = url + (statusChoice.getValue().toString());
         }
-        if (accountTypeChoice.getValue() != null && statusChoice.getValue() != "-----") {
+        if (accountTypeChoice.getValue() != null && statusChoice.getValue() != "") {
             url = addSeparator(url, originalUrl);
             url = url + "AccountType=";
             url = url + (accountTypeChoice.getValue()).toString();

@@ -29,16 +29,17 @@ public class DriverMain implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillTable();
+
+        //fillTable();
     }
 
-    public void fillTable(){
-        start.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("start"));
-        userId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("userId"));
-        truckId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("truckId"));
-        deadline.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("deadline"));
-        tableTrip.getItems().setAll(ClassTrip.getArray());
-    }
+//    public void fillTable(){
+//        start.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("start"));
+//        userId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("userId"));
+//        truckId.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("truckId"));
+//        deadline.setCellValueFactory(new PropertyValueFactory<ClassTrip, LocalDate>("deadline"));
+//        tableTrip.getItems().setAll(ClassTrip.getArray());
+//    }
 
     public void goBack(ActionEvent actionEvent) {
     }
