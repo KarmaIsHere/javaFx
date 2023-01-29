@@ -2,8 +2,6 @@ package com.example.lb1_javafx.model;
 
 import com.example.lb1_javafx.CallEndpoints;
 import com.example.lb1_javafx.model.order.ClassTrip;
-import com.example.lb1_javafx.model.user.ClassUser;
-import com.example.lb1_javafx.model.user.UserAccountType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,9 +1,6 @@
 package com.example.lb1_javafx.fxController.preview;
 
-import com.example.lb1_javafx.model.ClassTruck;
-import com.example.lb1_javafx.model.order.ClassShipment;
 import com.example.lb1_javafx.model.order.ClassStopPoint;
-import com.example.lb1_javafx.model.order.ClassTrip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 

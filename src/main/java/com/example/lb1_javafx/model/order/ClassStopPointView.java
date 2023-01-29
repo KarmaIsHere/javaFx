@@ -1,15 +1,11 @@
 package com.example.lb1_javafx.model.order;
 
 import com.example.lb1_javafx.CallEndpoints;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.persistence.Entity;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,12 +1,7 @@
 package com.example.lb1_javafx.fxController.preview;
 
-import com.example.lb1_javafx.CallEndpoints;
-import com.example.lb1_javafx.model.ClassTruck;
-import com.example.lb1_javafx.model.TruckStatus;
 import com.example.lb1_javafx.model.order.ClassTrip;
 import com.example.lb1_javafx.model.order.TripStatus;
-import com.example.lb1_javafx.model.user.ClassUser;
-import com.example.lb1_javafx.utils.FxUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 

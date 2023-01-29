@@ -1,9 +1,9 @@
 package com.example.lb1_javafx.fxController.preview;
 
 import com.example.lb1_javafx.CallEndpoints;
+import com.example.lb1_javafx.model.user.ClassUser;
 import com.example.lb1_javafx.model.user.UserAccountType;
 import com.example.lb1_javafx.model.user.UserStatus;
-import com.example.lb1_javafx.model.user.ClassUser;
 import com.example.lb1_javafx.utils.FxUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

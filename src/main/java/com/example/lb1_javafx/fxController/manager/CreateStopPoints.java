@@ -9,7 +9,6 @@ import com.example.lb1_javafx.utils.FxUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -24,7 +23,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -100,26 +98,6 @@ public class CreateStopPoints implements Initializable {
 
     }
 
-    /*private void fillSearchTable(String body) {
-        fillTable();
-        tableStopPoint.getItems().setAll(ClassStopPointView.getArray(body));
-    }
-
-    private void fillAllTable() {
-        fillTable();
-        tableStopPoint.getItems().setAll(ClassStopPointView.getArray());
-    }
-
-    public void fillTable(){
-        nr.setCellValueFactory(new PropertyValueFactory<ClassStopPointView, Long>("nr"));
-        shipment.setCellValueFactory(new PropertyValueFactory<ClassStopPointView, Long>("shipment"));
-        description.setCellValueFactory(new PropertyValueFactory<ClassStopPointView, String>("description"));
-        weight.setCellValueFactory(new PropertyValueFactory<ClassStopPointView, String>("weight"));
-        country.setCellValueFactory(new PropertyValueFactory<ClassStopPointView, String>("country"));
-        city.setCellValueFactory(new PropertyValueFactory<ClassStopPointView, String>("city"));
-        streetAddress.setCellValueFactory(new PropertyValueFactory<ClassStopPointView, String>("streetAddress"));
-        tableStopPoint.getItems().setAll(ClassStopPointView.getArray());
-    }*/
 
     public void fillTripTable(){
         id.setCellValueFactory(new PropertyValueFactory<ClassTrip, Long>("id"));
@@ -221,11 +199,6 @@ public class CreateStopPoints implements Initializable {
         System.out.println(json);
         fillTripTable();
     }
-
-    public void backToMain(ActionEvent actionEvent) throws IOException {
-        switchScene("main-window.fxml", backButton);
-    }
-
     private Long getIdFromChoice(String input){
         Pattern pattern = Pattern.compile("\\((\\d+)\\)");
         Matcher matcher = pattern.matcher(input);
@@ -235,6 +208,11 @@ public class CreateStopPoints implements Initializable {
         }
         return null;
     }
+
+    public void backToMain(ActionEvent actionEvent) throws IOException {
+        switchScene("main-window.fxml", backButton);
+    }
+
 
 
     public void refresh(ActionEvent actionEvent) {

@@ -2,12 +2,10 @@ package com.example.lb1_javafx.fxController;
 
 import com.example.lb1_javafx.CallEndpoints;
 import com.example.lb1_javafx.utils.FxUtils;
-import com.example.lb1_javafx.utils.Validation;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import org.json.JSONObject;
 
 import java.io.IOException;
 

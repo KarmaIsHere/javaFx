@@ -2,7 +2,6 @@ package com.example.lb1_javafx.fxController;
 
 import com.example.lb1_javafx.CallEndpoints;
 import com.example.lb1_javafx.utils.FxUtils;
-import com.example.lb1_javafx.utils.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

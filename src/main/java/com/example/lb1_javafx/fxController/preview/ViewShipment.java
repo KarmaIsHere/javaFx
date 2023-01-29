@@ -1,10 +1,9 @@
 package com.example.lb1_javafx.fxController.preview;
 
 import com.example.lb1_javafx.CallEndpoints;
-import com.example.lb1_javafx.model.ClassTruck;
-import com.example.lb1_javafx.model.order.*;
-import com.example.lb1_javafx.model.user.ClassUser;
-import com.example.lb1_javafx.model.user.UserAccountType;
+import com.example.lb1_javafx.model.order.ClassDestination;
+import com.example.lb1_javafx.model.order.ClassShipment;
+import com.example.lb1_javafx.model.order.ShipmentStatus;
 import com.example.lb1_javafx.utils.FxUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +16,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

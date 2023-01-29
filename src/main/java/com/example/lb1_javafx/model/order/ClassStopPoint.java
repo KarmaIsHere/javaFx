@@ -1,8 +1,6 @@
 package com.example.lb1_javafx.model.order;
 
 import com.example.lb1_javafx.CallEndpoints;
-import com.example.lb1_javafx.model.ClassTruck;
-import com.example.lb1_javafx.model.user.ClassUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.persistence.*;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

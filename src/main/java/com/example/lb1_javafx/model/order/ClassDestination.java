@@ -1,7 +1,6 @@
 package com.example.lb1_javafx.model.order;
 
 import com.example.lb1_javafx.CallEndpoints;
-import com.example.lb1_javafx.model.ClassTruck;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

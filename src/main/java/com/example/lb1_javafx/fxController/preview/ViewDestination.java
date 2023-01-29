@@ -1,12 +1,7 @@
 package com.example.lb1_javafx.fxController.preview;
 
 import com.example.lb1_javafx.CallEndpoints;
-import com.example.lb1_javafx.model.ClassTruck;
-import com.example.lb1_javafx.model.TruckStatus;
 import com.example.lb1_javafx.model.order.ClassDestination;
-import com.example.lb1_javafx.model.order.ClassTrip;
-import com.example.lb1_javafx.model.user.ClassUser;
-import com.example.lb1_javafx.model.user.UserAccountType;
 import com.example.lb1_javafx.utils.FxUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
