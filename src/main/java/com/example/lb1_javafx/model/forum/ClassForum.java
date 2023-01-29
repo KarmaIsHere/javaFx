@@ -1,7 +1,6 @@
 package com.example.lb1_javafx.model.forum;
 
 import com.example.lb1_javafx.CallEndpoints;
-import com.example.lb1_javafx.model.order.ClassDestination;
 import com.example.lb1_javafx.model.user.ClassUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,8 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.persistence.*;
-
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,14 +44,14 @@ public class ClassForum {
     private Long userId;
 
     @Column(name = "FORUM_CREATIONDATE", nullable = false)
-    private Instant date;
+    private LocalDate date;
 
     public ClassForum(JSONObject jsonObject) {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
         this.title = (String) jsonObject.get("title");
         this.description = (String) jsonObject.get("description");
         this.category = (String) jsonObject.get("category");
-        this.date =  Instant.parse(jsonObject.get("date").toString());
+        this.date =  LocalDate.parse(jsonObject.get("date").toString());
         getUser( Long.valueOf((Integer) jsonObject.get("user")));
 
 

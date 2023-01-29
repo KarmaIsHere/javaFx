@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class ClassComment {
     private String text;
 
     @Column(name = "COMMENT_DATE", nullable = false)
-    private Instant date;
+    private LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FORUM_ID", nullable = false)
@@ -42,16 +42,32 @@ public class ClassComment {
     private ClassUser user;
     private Long userId;
 
+    private String userInfo;
+
     public ClassComment(JSONObject jsonObject) {
         this.id = Long.valueOf((Integer) jsonObject.get("id"));
         this.text = (String) jsonObject.get("text");
-        this.date = Instant.parse(jsonObject.get("date").toString());
+        this.date = LocalDate.parse(jsonObject.get("date").toString());
         getForum( Long.valueOf((Integer) jsonObject.get("forum")));
         getUser( Long.valueOf((Integer) jsonObject.get("user")));
+        this.userInfo = this.user.getFirst_name() + " " + this.user.getLast_name() + " (" + this.user.getEmail() + ") ";
     }
     public static List<ClassComment> getArray() {
 
         String response = CallEndpoints.Get("http://localhost:8080/api/comment/comments");
+        List<ClassComment> comments = new ArrayList<ClassComment>();
+        JSONArray responseArray = new JSONArray(response);
+        if (responseArray != null) {
+            for (int i = 0; i < responseArray.length(); i++) {
+                comments.add(new ClassComment(responseArray.getJSONObject(i)));
+            }
+        }
+        return comments;
+    }
+
+    public static List<ClassComment> getForumArray(Long id) {
+
+        String response = CallEndpoints.Get("http://localhost:8080/api/comment/comments?forumId=" + id);
         List<ClassComment> comments = new ArrayList<ClassComment>();
         JSONArray responseArray = new JSONArray(response);
         if (responseArray != null) {

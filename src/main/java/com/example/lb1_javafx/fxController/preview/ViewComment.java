@@ -1,10 +1,6 @@
 package com.example.lb1_javafx.fxController.preview;
 
-import com.example.lb1_javafx.model.ClassTruck;
 import com.example.lb1_javafx.model.forum.ClassComment;
-import com.example.lb1_javafx.model.forum.ClassForum;
-import com.example.lb1_javafx.model.order.ClassTrip;
-import com.example.lb1_javafx.model.user.ClassUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import static com.example.lb1_javafx.utils.SceneSwitcher.switchScene;
@@ -32,7 +28,7 @@ public class ViewComment implements Initializable {
     @FXML
     public TableColumn <ClassComment, String> text;
     @FXML
-    public TableColumn <ClassComment, Instant> date;
+    public TableColumn <ClassComment, LocalDate> date;
     @FXML
     public TableColumn <ClassComment, Long> forumId;
     @FXML
@@ -46,11 +42,10 @@ public class ViewComment implements Initializable {
     public void fillTable(){
         id.setCellValueFactory(new PropertyValueFactory<ClassComment, Long>("id"));
         text.setCellValueFactory(new PropertyValueFactory<ClassComment, String>("text"));
-        date.setCellValueFactory(new PropertyValueFactory<ClassComment, Instant>("date"));
+        date.setCellValueFactory(new PropertyValueFactory<ClassComment, LocalDate>("date"));
         forumId.setCellValueFactory(new PropertyValueFactory<ClassComment, Long>("forumId"));
         userId.setCellValueFactory(new PropertyValueFactory<ClassComment, Long>("userId"));
         tableComment.getItems().setAll(ClassComment.getArray());
-
     }
 
     public void createEntry(ActionEvent actionEvent) {

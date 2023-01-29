@@ -1,7 +1,6 @@
 package com.example.lb1_javafx.fxController;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;

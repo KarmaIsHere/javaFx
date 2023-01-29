@@ -1,6 +1,7 @@
 package com.example.lb1_javafx.utils;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class FxUtils {
@@ -14,8 +15,12 @@ public class FxUtils {
 
     public static boolean isFieldEmpty(TextField field)
     {
-        if (field.getText().isBlank()) return true;
-        return false;
+        return field.getText().isBlank();
+    }
+
+    public static boolean isFieldAreaEmpty (TextArea field)
+    {
+        return field.getText().isEmpty();
     }
 
 

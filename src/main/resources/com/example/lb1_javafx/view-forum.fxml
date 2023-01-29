@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -10,36 +11,39 @@
 
 <AnchorPane prefHeight="716.0" prefWidth="1097.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lb1_javafx.fxController.preview.ViewForum">
     <children>
-        <TableView fx:id="tableForum" layoutX="15.0" layoutY="9.0" prefHeight="638.0" prefWidth="900.0">
+        <TableView fx:id="tableForum" layoutX="15.0" layoutY="37.0" onMouseClicked="#fieldSelect" prefHeight="620.0" prefWidth="292.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="39.0" text="id" />
-                <TableColumn fx:id="title" prefWidth="217.0" text="title" />
-                <TableColumn fx:id="description" prefWidth="349.0" text="description" />
-                <TableColumn fx:id="category" prefWidth="75.0" text="category" />
-                <TableColumn fx:id="userId" prefWidth="67.0" text="user" />
-                <TableColumn fx:id="date" prefWidth="152.0" text="date" />
+                <TableColumn fx:id="id" prefWidth="25.0" text="id" />
+                <TableColumn fx:id="title" prefWidth="266.0" text="title" />
             </columns>
         </TableView>
         <Text layoutX="933.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
         <TextField fx:id="titleField" layoutX="932.0" layoutY="35.0" />
-        <Text layoutX="931.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-        <TextField fx:id="descriptionField" layoutX="932.0" layoutY="81.0" />
-        <Text layoutX="932.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
-        <TextField fx:id="categoryField" layoutX="932.0" layoutY="135.0" />
-        <Text layoutX="932.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creator" />
-        <TextField fx:id="userField" layoutX="932.0" layoutY="195.0" />
-        <Text layoutX="932.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
-        <TextField fx:id="dateField" layoutX="932.0" layoutY="255.0" />
-        <Button fx:id="createButton" layoutX="1031.0" layoutY="530.0" mnemonicParsing="false" onAction="#createEntry" prefWidth="51.0" text="Create" />
-        <Button fx:id="searchButton" layoutX="933.0" layoutY="530.0" mnemonicParsing="false" onAction="#searchTable" text="Search" />
-        <Line endX="60.0" layoutX="1033.0" layoutY="634.0" startX="-116.0" />
-        <Text layoutX="991.0" layoutY="585.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Existing Login" wrappingWidth="92.0" />
-        <Button fx:id="editButton" layoutX="932.0" layoutY="589.0" mnemonicParsing="false" onAction="#submitEdit" prefHeight="25.0" prefWidth="51.0" text="Edit" />
-        <TextField fx:id="editIdField" layoutX="991.0" layoutY="589.0" prefHeight="25.0" prefWidth="92.0" />
-        <Text layoutX="999.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="16.259765625" />
-        <TextField fx:id="idField" layoutX="994.0" layoutY="661.0" prefHeight="25.0" prefWidth="92.0" />
-        <Button fx:id="deleteButton" layoutX="935.0" layoutY="661.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete" />
+        <Text layoutX="930.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+        <Button fx:id="createButton" layoutX="981.0" layoutY="284.0" mnemonicParsing="false" onAction="#createEntry" prefWidth="51.0" text="Create" />
         <Button fx:id="backButton" layoutX="14.0" layoutY="665.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <Text layoutX="23.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forums" />
+      <Text layoutX="334.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+      <TextField fx:id="viewCreatorField" editable="false" layoutX="334.0" layoutY="37.0" prefHeight="25.0" prefWidth="339.0" />
+      <TextField fx:id="viewDateField" editable="false" layoutX="687.0" layoutY="37.0" prefHeight="25.0" prefWidth="215.0" />
+      <Text layoutX="334.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creator" />
+      <Text layoutX="687.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
+      <TextArea fx:id="descriptionField" layoutX="932.0" layoutY="94.0" prefHeight="182.0" prefWidth="149.0" />
+      <TableView fx:id="tableComment" layoutX="333.0" layoutY="207.0" prefHeight="450.0" prefWidth="568.0">
+         <columns>
+            <TableColumn fx:id="commentText" prefWidth="331.0" text="text" />
+            <TableColumn fx:id="commentDate" minWidth="0.0" prefWidth="105.0" text="date" />
+            <TableColumn fx:id="commentUserId" prefWidth="131.0" text="user" />
+         </columns>
+      </TableView>
+      <Line endX="-129.5" endY="-632.0" layoutX="1046.0" layoutY="632.0" startX="-129.5" startY="84.0" />
+      <Text layoutX="334.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comments" />
+      <TextField fx:id="forumIdField" layoutX="92.0" layoutY="6.0" prefHeight="17.0" prefWidth="215.0" visible="false" />
+      <TextArea fx:id="commentField" layoutX="932.0" layoutY="358.0" prefHeight="312.0" prefWidth="149.0" />
+      <Text layoutX="934.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comment" />
+      <Button fx:id="postCommentButton" layoutX="981.0" layoutY="678.0" mnemonicParsing="false" onAction="#postComment" prefWidth="51.0" text="Post" />
+      <Line endX="-139.0" endY="-266.5" layoutX="1055.0" layoutY="592.0" startX="41.0" startY="-266.5" />
+      <TextArea fx:id="viewDescriptionField" editable="false" layoutX="334.0" layoutY="96.0" prefHeight="86.0" prefWidth="568.0" />
     </children>
 
 </AnchorPane>

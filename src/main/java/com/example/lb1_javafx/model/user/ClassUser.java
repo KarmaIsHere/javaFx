@@ -76,9 +76,6 @@ public class ClassUser  {
         this.salary = (String) jsonObject.get("salary");
     }
 
-
-
-
     public static List<ClassUser> getArray() {
         return getArray(CallEndpoints.Get("http://localhost:8080/api/user/users"));
     }
